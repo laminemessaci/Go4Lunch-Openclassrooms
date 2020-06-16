@@ -13,7 +13,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -35,7 +38,20 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
 
 
-    implementation 'com.google.firebase:firebase-analytics:17.2.2'
+    // FIREBASEUI
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation 'com.firebaseui:firebase-ui-auth:5.0.0'
+    implementation 'com.google.firebase:firebase-core:17.2.0'
+    implementation 'com.google.firebase:firebase-messaging:20.0.0'
+    implementation 'com.google.firebase:firebase-firestore:21.1.1'
+    implementation 'com.firebaseui:firebase-ui-firestore:5.0.0'
+
+    // GOOGLE
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.android.libraries.places:places:2.0.0'
+
+
 
 }
 apply plugin: 'com.google.gms.google-services'
