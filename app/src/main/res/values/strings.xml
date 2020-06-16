@@ -7,6 +7,12 @@
     <string name="twitter_consumer_key" translatable="false">oQmmnyuEkZe2sajg7oXWsIIfb</string>
     <string name="twitter_consumer_secret" translatable="false">K4e88lQwGqyEPJKo8YZrC8N66pXiQ6UI4If4QBcrkbay6Je2K8</string>
 
+    <!-- NAVIGATION MENU -->
+    <string name="yourLunch" translatable="true">YOUR LUNCH</string>
+    <string name="settings" translatable="true">SETTINGS</string>
+    <string name="logout" translatable="true">LOGOUT</string>
+
+
 
     <string name="app_name">Go4Lunch</string>
     <string name="facebook_button">Sign in with Facebook</string>
@@ -21,4 +27,5 @@
     <string name="error_during_creating">Error during creating new user</string>
     <string name="error_restaurant">An error has occurred, please try again later.</string>
     <string name="location_permission">Please grant the location permission</string>
+    <string name="search_a_restaurant">Search a restaurant</string>
 </resources>
