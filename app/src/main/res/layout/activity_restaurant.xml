@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <ImageView
+            android:id="@+id/activity_restaurant_restaurant_picture"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            tools:background="@drawable/lunchbackground" />
+
+        <LinearLayout
+            android:id="@+id/viewB"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15"
+            android:background="@color/toolbar_darker"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/activity_restaurant_name"
+                android:textSize="15sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                tools:text="Le Zinc"/>
+
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/activity_restaurant_ratingBar"
+                    android:theme="@style/RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginStart="8dp"
+                    android:numStars="3"
+                    tools:rating="1"
+                    style="?android:attr/ratingBarStyleSmall"/>
+
+        </LinearLayout>
+
+            <TextView
+                android:id="@+id/activity_restaurant_address"
+                android:textSize="15sp"
+                android:layout_marginStart="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                tools:text="12 rue du Faubourg Poissonière"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15"
+            android:weightSum="3"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/activity_restaurant_button_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/call"
+                android:drawableTop="@drawable/baseline_call_black_24"
+                android:background="@color/fui_transparent"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/toolbar_darker"
+                android:drawableTint="@color/toolbar_darker"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/activity_restaurant_button_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/LIKE"
+                android:drawableTop="@drawable/baseline_star_black_24"
+                android:background="@color/fui_transparent"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/toolbar_darker"
+                android:drawableTint="@color/toolbar_darker"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/activity_restaurant_button_website"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/website"
+                android:drawableTop="@drawable/sharp_public_black_24"
+                android:background="@color/fui_transparent"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/toolbar_darker"
+                android:drawableTint="@color/toolbar_darker"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="10dp"
+            android:background="#A9A9A9"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="40"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/activity_restaurant_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/restaurant_activity_go_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:backgroundTint="@color/colorWhite"
+        android:tag="JOIN"
+        android:src="@drawable/pic_logo_go4lunch_512x512"
+        android:background="@drawable/pic_logo_go4lunch_512x512"
+        android:tint="@color/toolbar_darker"
+        app:layout_anchor="@id/activity_restaurant_restaurant_picture"
+        app:layout_anchorGravity="bottom|right|end"
+        tools:targetApi="lollipop" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

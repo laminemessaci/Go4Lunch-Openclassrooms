@@ -59,7 +59,7 @@ dependencies {
 
 
     // FACEBOOK
-    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
+    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
 
     // TWITTER
     implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
@@ -68,7 +68,5 @@ dependencies {
     implementation 'pub.devrel:easypermissions:2.0.1'
 
 
-    //importer la librairie de support multidex
-    implementation "androidx.multidex:multidex:2.0.0"
 }
 apply plugin: 'com.google.gms.google-services'

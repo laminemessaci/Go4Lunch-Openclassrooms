@@ -1,6 +1,5 @@
 package com.lamine.go4lunch;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.Manifest;
@@ -24,6 +23,7 @@ import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 
 public class LogInActivity extends BaseActivity {
+
     //FOR DATA
     // - Identifier for Sign-In Activity
     private static final int RC_SIGN_IN = 123;
@@ -37,7 +37,7 @@ public class LogInActivity extends BaseActivity {
 
     @Override
     public int getFragmentLayout() {
-        return R.layout.activity_log_in;
+        return R.layout.activity_login;
     }
 
     @Override
@@ -165,7 +165,7 @@ public class LogInActivity extends BaseActivity {
     // --------------------
 
     private void startActivityIfLogged() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MainScreenActivity.class);
         startActivity(intent);
         finish();
     }

@@ -22,6 +22,7 @@
     <string name="workmates" translatable="true">Workmates</string>
 
     <string name="im_hungry" translatable="false">I\'m Hungry!</string>
+    <string name="setting">Settings</string>
     <string name="app_name">Go4Lunch</string>
     <string name="facebook_button">Sign in with Facebook</string>
     <string name="google_button">Sign in with Google</string>
