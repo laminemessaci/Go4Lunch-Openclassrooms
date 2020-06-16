@@ -11,6 +11,7 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
+import com.lamine.go4lunch.Models.Details.Result;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -115,7 +116,7 @@ public class UserHelper {
         return UserHelper.getUsersCollection().document(userId).update(update);
     }
 
-    public static void getRestaurantInfo(com.corroy.mathieu.go4lunch.Models.Details.Result result, OnRequestListener onRequestListener) {
+    public static void getRestaurantInfo(Result result, OnRequestListener onRequestListener) {
         List<User> users = new ArrayList<>();
         FirebaseFirestore.getInstance()
                 .collection(COLLECTION_USERS)

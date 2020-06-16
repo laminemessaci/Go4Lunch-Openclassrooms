@@ -10,8 +10,13 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    lintOptions {
+        disable 'RestrictedApi'
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -52,6 +57,7 @@ dependencies {
     implementation 'com.google.android.libraries.places:places:2.0.0'
 
 
-
+    //importer la librairie de support multidex
+    implementation "androidx.multidex:multidex:2.0.0"
 }
 apply plugin: 'com.google.gms.google-services'

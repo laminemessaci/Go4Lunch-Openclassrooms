@@ -1,4 +1,4 @@
-package com.corroy.mathieu.go4lunch.Models.Details;
+package com.lamine.go4lunch.Models.Details;
 
 import android.location.Location;
 
