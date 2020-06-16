@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorTransparent">#00FFFCFC</color>
+
+    <!-- BUTTON -->
+    <color name="facebook_button">#3b5998</color>
+    <color name="google_button">#dd4b39</color>
+    <color name="twitter_button">#38A1F3</color>
+    <color name="login_button">#F7BA5E</color>
+
+    <!-- TOOLBAR -->
+    <color name="toolbar_background">#EEFD6838</color>
+    <color name="toolbar_darker">#F45236</color>
+
+    <!-- RATING BAR -->
+    <color name="colorStar">#ffd600</color>
+    <color name="colorGray">#8888</color>
 </resources>

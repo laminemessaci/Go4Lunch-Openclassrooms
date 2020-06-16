@@ -1,3 +1,24 @@
 <resources>
+    <!-- FACEBOOK STRINGS -->
+    <string name="facebook_application_id" translatable="false">566844400937061</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">tools:ignore="UnusedResources">fb566844400937061</string>
+
+    <!-- TWITTER STRINGS -->
+    <string name="twitter_consumer_key" translatable="false">oQmmnyuEkZe2sajg7oXWsIIfb</string>
+    <string name="twitter_consumer_secret" translatable="false">K4e88lQwGqyEPJKo8YZrC8N66pXiQ6UI4If4QBcrkbay6Je2K8</string>
+
+
     <string name="app_name">Go4Lunch</string>
+    <string name="facebook_button">Sign in with Facebook</string>
+    <string name="google_button">Sign in with Google</string>
+    <string name="Go4Lunch" translatable="false">Go4Lunch</string>
+    <string name="MainTextview" translatable="false">Find a nice restaurant and invite your co-workers for lunch!</string>
+    <string name="login_password">Login / Password</string>
+    <string name="sign_in_with_twitter">Sign in with Twitter</string>
+    <string name="connexion_success">Connexion success !</string>
+    <string name="authentication_canceled">Authentication canceled</string>
+    <string name="no_network">No network</string>
+    <string name="error_during_creating">Error during creating new user</string>
+    <string name="error_restaurant">An error has occurred, please try again later.</string>
+    <string name="location_permission">Please grant the location permission</string>
 </resources>
