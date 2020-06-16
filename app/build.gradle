@@ -80,6 +80,10 @@ dependencies {
 // For developers using AndroidX in their applications // EASY PERMISSIONS
     implementation 'pub.devrel:easypermissions:2.0.1'
 
+    // CUSTOM TABS
+    implementation 'androidx.browser:browser:1.0.0'
+
+//multidex
     implementation 'androidx.multidex:multidex:2.0.1'
 }
 apply plugin: 'com.google.gms.google-services'

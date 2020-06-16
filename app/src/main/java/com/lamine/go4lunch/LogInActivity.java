@@ -85,7 +85,7 @@ public class LogInActivity extends BaseActivity {
         }
     }
 
-    // Launch Login Sign-in
+    // Launch Login  Twitter Sign-in
     @OnClick(R.id.mainActivity_twitter_login)
     public void onClickTwitterButton() {
         if (UserHelper.isCurrentUserLogged()) {
