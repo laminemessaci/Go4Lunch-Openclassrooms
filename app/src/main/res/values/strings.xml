@@ -13,8 +13,8 @@
 
 
     <!-- TWITTER STRINGS -->
-    <string name="twitter_consumer_key" translatable="false">oQmmnyuEkZe2sajg7oXWsIIfb</string>
-    <string name="twitter_consumer_secret" translatable="false">K4e88lQwGqyEPJKo8YZrC8N66pXiQ6UI4If4QBcrkbay6Je2K8</string>
+    <string name="twitter_consumer_key" translatable="false">vJWbrWNtgiITr6JK1q43eQC8M</string>
+    <string name="twitter_consumer_secret" translatable="false">avdb2pY1c0yHrJq6Rrv019vEbzEsliuaUj6Br1gXP1pXkPrHQ5</string>
 
     <!-- BOTTOM NAVIGATION VIEW -->
     <string name="map_view" translatable="true">Map View</string>
@@ -33,7 +33,7 @@
     <!-- GOOGLE MAP -->
     <string name="title_activity_maps" translatable="false">Map</string>
 
-    <!-- OTHER -->
+    <!-- Go4Lunc -->
     <string name="open">Open now</string>
     <string name="close">Closed</string>
     <string name="website">WEBSITE</string>

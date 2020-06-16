@@ -1,16 +1,14 @@
 package com.lamine.go4lunch;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.multidex.MultiDexApplication;
 
-import android.os.Bundle;
+
+import androidx.multidex.MultiDexApplication;
 
 public class MyApplication extends MultiDexApplication {
 
     @Override
     public void onCreate() {
         super.onCreate();
-
 
     }
 }
