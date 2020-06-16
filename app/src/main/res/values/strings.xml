@@ -12,8 +12,16 @@
     <string name="settings" translatable="true">SETTINGS</string>
     <string name="logout" translatable="true">LOGOUT</string>
 
+    <!-- NAVIGATION DRAWER -->
+    <string name="navigation_drawer_open" translatable="true">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="true">Close navigation drawer</string>
 
+    <!-- BOTTOM NAVIGATION VIEW -->
+    <string name="map_view" translatable="true">Map View</string>
+    <string name="list_view" translatable="true">List View</string>
+    <string name="workmates" translatable="true">Workmates</string>
 
+    <string name="im_hungry" translatable="false">I\'m Hungry!</string>
     <string name="app_name">Go4Lunch</string>
     <string name="facebook_button">Sign in with Facebook</string>
     <string name="google_button">Sign in with Google</string>
