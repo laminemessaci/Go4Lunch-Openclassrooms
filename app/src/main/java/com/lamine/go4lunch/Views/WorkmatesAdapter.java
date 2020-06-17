@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by Lamine MESSACI on 17/06/2020.
  */
-class WorkmatesAdapter extends RecyclerView.Adapter<WorkmatesViewHolder> {
+public class WorkmatesAdapter extends RecyclerView.Adapter<WorkmatesViewHolder> {
 
     private List<User> user;
 
