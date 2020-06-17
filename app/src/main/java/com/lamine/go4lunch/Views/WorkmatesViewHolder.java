@@ -59,4 +59,4 @@ class WorkmatesViewHolder extends RecyclerView.ViewHolder {
         }
     }
 }
-}
+
