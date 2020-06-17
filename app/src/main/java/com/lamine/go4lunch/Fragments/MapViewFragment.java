@@ -100,9 +100,7 @@ public class MapViewFragment extends BaseFragment implements OnMapReadyCallback,
 
     // Create a new subscriber
     private void executeHttpRequestWithRetrofit() {
-        disposable = Go4LunchStreams.getInstance()
-                     .streamFetchGooglePlaces(position, 7000, RESTAURANT)
-                      .subscribeWith(new DisposableObserver<Google>() {
+        disposable = Go4LunchStreams.getInstance().streamFetchGooglePlaces(position, 7000, RESTAURANT).subscribeWith(new DisposableObserver<Google>() {
             @Override
             public void onNext(Google google) {
                 nearbyResultList.addAll(google.getResults());
