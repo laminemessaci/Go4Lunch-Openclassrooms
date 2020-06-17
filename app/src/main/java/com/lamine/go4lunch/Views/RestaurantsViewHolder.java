@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Lamine MESSACI on 17/06/2020.
  */
-class RestaurantsViewHolder extends RecyclerView.ViewHolder {
+public class RestaurantsViewHolder extends RecyclerView.ViewHolder {
 
 
     private static final String GET_UID = "uid";

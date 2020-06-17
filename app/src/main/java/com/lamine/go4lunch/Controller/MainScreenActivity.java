@@ -27,6 +27,14 @@ import com.bumptech.glide.request.RequestOptions;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.AutocompletePrediction;
+import com.google.android.libraries.places.api.model.AutocompleteSessionToken;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.model.RectangularBounds;
+import com.google.android.libraries.places.api.model.TypeFilter;
+import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest;
+import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.lamine.go4lunch.Fragments.ListViewFragment;
@@ -34,8 +42,11 @@ import com.lamine.go4lunch.Fragments.MapViewFragment;
 import com.lamine.go4lunch.Fragments.WorkmatesFragment;
 import com.lamine.go4lunch.Models.Helper.User;
 import com.lamine.go4lunch.Models.Helper.UserHelper;
+import com.lamine.go4lunch.Models.NearbySearch.NearbyResult;
 import com.lamine.go4lunch.R;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import butterknife.BindView;

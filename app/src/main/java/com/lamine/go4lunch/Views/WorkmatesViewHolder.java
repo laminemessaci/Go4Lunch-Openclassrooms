@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Lamine MESSACI on 17/06/2020.
  */
-class WorkmatesViewHolder extends RecyclerView.ViewHolder {
+public class WorkmatesViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.workmates_name) TextView name;
     @BindView(R.id.workmates_picture) ImageView picture;
