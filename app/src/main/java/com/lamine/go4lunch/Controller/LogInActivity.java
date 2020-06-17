@@ -1,4 +1,4 @@
-package com.lamine.go4lunch;
+package com.lamine.go4lunch.Controller;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
@@ -14,6 +14,7 @@ import com.firebase.ui.auth.IdpResponse;
 import com.google.android.material.snackbar.Snackbar;
 import com.lamine.go4lunch.Models.Helper.User;
 import com.lamine.go4lunch.Models.Helper.UserHelper;
+import com.lamine.go4lunch.R;
 
 import java.util.Collections;
 

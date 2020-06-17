@@ -1,4 +1,4 @@
-package com.lamine.go4lunch;
+package com.lamine.go4lunch.Controller;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -10,9 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,11 +27,10 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-import com.lamine.go4lunch.Fragments.ListViewFragment;
 import com.lamine.go4lunch.Fragments.MapViewFragment;
-import com.lamine.go4lunch.Fragments.WorkmatesFragment;
 import com.lamine.go4lunch.Models.Helper.User;
 import com.lamine.go4lunch.Models.Helper.UserHelper;
+import com.lamine.go4lunch.R;
 
 import java.util.Objects;
 

@@ -14,11 +14,11 @@ public interface Go4LunchService {
 
     // Create a GET Request on a URL complement
 
-    @GET("maps/api/place/nearbysearch/json?key=AIzaSyDXI74hOiHLi4l2vhUEs23260f055xyXvI")
+    @GET("maps/api/place/nearbysearch/json?key=AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA")
     Observable<Google> getGoogleRestaurant(@Query("location") String location,
                                            @Query("radius") int radius,
                                            @Query("type") String type);
 
-    @GET("maps/api/place/details/json?key=AIzaSyDXI74hOiHLi4l2vhUEs23260f055xyXvI")
+    @GET("maps/api/place/details/json?key=AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA")
     Observable<Details> getGoogleDetailsInfo(@Query("placeid") String placeId);
 }

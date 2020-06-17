@@ -1,4 +1,4 @@
-package com.lamine.go4lunch;
+package com.lamine.go4lunch.Controller;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;

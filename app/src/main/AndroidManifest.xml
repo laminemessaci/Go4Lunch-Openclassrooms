@@ -17,12 +17,12 @@
         <!-- ACTIVITIES -->
 
         <activity
-            android:name=".SettingsActivity"
+            android:name=".Controller.SettingsActivity"
             android:label="@string/setting" />
-        <activity android:name=".RestaurantActivity" />
-        <activity android:name=".MainScreenActivity" />
+        <activity android:name=".Controller.RestaurantActivity" />
+        <activity android:name=".Controller.MainScreenActivity" />
 
-        <activity android:name=".LogInActivity">
+        <activity android:name=".Controller.LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

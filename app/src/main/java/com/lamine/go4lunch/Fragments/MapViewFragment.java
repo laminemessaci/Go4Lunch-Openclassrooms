@@ -11,7 +11,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,12 +26,12 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.lamine.go4lunch.MainScreenActivity;
+import com.lamine.go4lunch.Controller.MainScreenActivity;
 import com.lamine.go4lunch.Models.Helper.UserHelper;
 import com.lamine.go4lunch.Models.NearbySearch.Google;
 import com.lamine.go4lunch.Models.NearbySearch.NearbyResult;
 import com.lamine.go4lunch.R;
-import com.lamine.go4lunch.RestaurantActivity;
+import com.lamine.go4lunch.Controller.RestaurantActivity;
 import com.lamine.go4lunch.Utils.GPSTracker;
 import com.lamine.go4lunch.Utils.Go4LunchStreams;
 

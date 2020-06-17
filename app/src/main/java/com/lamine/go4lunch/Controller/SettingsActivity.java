@@ -1,8 +1,10 @@
-package com.lamine.go4lunch;
+package com.lamine.go4lunch.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.lamine.go4lunch.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
