@@ -42,7 +42,7 @@ public class RestaurantActivity extends BaseActivity {
     private static final String NO_LONGER_JOIN = "DISJOINT";
     private static final String TEL = "tel";
     private static final String API_KEY = "&key=AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA";
-    private static final String PICTURE_URL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&maxheight=150&key=AIzaSyDXI74hOiHLi4l2vhUEs23260f055xyXvI&photoreference=";
+    private static final String PICTURE_URL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&maxheight=150&key=AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA&photoreference=";
     private static final String GET_RESTAURANT_ID = "restaurantId";
     @BindView(R.id.activity_restaurant_restaurant_picture) ImageView restaurantImageView;
     @BindView(R.id.activity_restaurant_address) TextView restaurantAddress;
