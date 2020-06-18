@@ -13,8 +13,8 @@
 
 
     <!-- TWITTER STRINGS -->
-    <string name="twitter_consumer_key" translatable="false">bNJl7dMxOqXzitASaWQo5NKSz</string>
-    <string name="twitter_consumer_secret" translatable="false">GU9mXRtwIQmFAfNP7aMIhomjfDheqvvsvoJomY1lslh7gVSgnC</string>
+    <string name="twitter_consumer_key" translatable="false">DTZQJEjoYD0srqtMrkhSHfKUT</string>
+    <string name="twitter_consumer_secret" translatable="false">WqAepQMRD4WFZJENTXSGwuj9CWZ9ImyzhXS34VbiNJmhuqH8nF</string>
 
     <!-- BOTTOM NAVIGATION VIEW -->
     <string name="map_view" translatable="true">Map View</string>

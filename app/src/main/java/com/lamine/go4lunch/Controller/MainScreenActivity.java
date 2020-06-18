@@ -1,5 +1,6 @@
 package com.lamine.go4lunch.Controller;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
@@ -80,7 +81,6 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         this.configureToolbar();
         this.configureNavigationView();
         this.configureBottomNavigationView();
@@ -179,10 +179,16 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
 
     // Configure Toolbar
     private void configureToolbar() {
+        //Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.im_hungry));
+        //toolbar.setTitle((R.string.im_hungry));
+        //setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.first_screen_toolbar);
+        toolbar.setTitle("Help");
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.im_hungry));
-        toolbar = findViewById(R.id.first_screen_toolbar);
-        toolbar.setTitle((R.string.im_hungry));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+
 
     }
 
