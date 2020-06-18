@@ -33,6 +33,11 @@
     <!-- GOOGLE MAP -->
     <string name="title_activity_maps" translatable="false">Map</string>
 
+    <string name="later">Later</string>
+    <string name="select">Select language</string>
+    <string name="en">English</string>
+    <string name="fr">French</string>
+
     <!-- Go4Lunc -->
     <string name="open">Open now</string>
     <string name="close">Closed</string>

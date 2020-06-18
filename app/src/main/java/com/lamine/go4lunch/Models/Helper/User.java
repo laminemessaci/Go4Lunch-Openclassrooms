@@ -13,6 +13,7 @@ public class User implements Parcelable {
     private String urlPicture;
     private String joinedRestaurant;
     private String restaurantId;
+    private String choice;
 
     public User(){}
 
@@ -58,6 +59,8 @@ public class User implements Parcelable {
         return joinedRestaurant;
     }
 
+    public String getChoice(){return choice;}
+
     // --- SETTERS ---
 
     void setJoinedRestaurant(String joinedRestaurant) {
@@ -67,6 +70,8 @@ public class User implements Parcelable {
     void setRestaurantId(String restaurantId) {
         this.restaurantId = restaurantId;
     }
+
+    public void setChoice(String choise ){ this.choice = choise;}
 
     // ------------------------------------------------
 

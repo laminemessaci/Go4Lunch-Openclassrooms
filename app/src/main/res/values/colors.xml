@@ -20,4 +20,5 @@
     <!-- RATING BAR -->
     <color name="colorStar">#ffd600</color>
     <color name="colorGray">#8888</color>
+    <color name="white">#FFFFFF</color>
 </resources>

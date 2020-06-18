@@ -56,6 +56,7 @@ public class RestaurantsViewHolder extends RecyclerView.ViewHolder {
         displayDistance(userLocation, result.getGeometry().getLocation());
         String distance = Integer.toString(Math.round(distanceResults[0]));
         this.restaurantDistance.setText(itemView.getResources().getString(R.string.list_unit_distance, distance));
+
         // ---------- Opening -------------
         if (result.getOpeningHours() != null) {
             if (result.getOpeningHours().getOpenNow()) {

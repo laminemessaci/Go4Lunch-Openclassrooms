@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.libraries.places.api.Places;
@@ -54,14 +55,11 @@ import butterknife.BindView;
 public class MainScreenActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     // FOR DESIGN
-    @BindView(R.id.first_screen_toolbar)
-    Toolbar toolbar;
-    @BindView(R.id.first_screen_drawerlayout)
-    DrawerLayout drawerLayout;
-    @BindView(R.id.first_screen_bottom_navigation)
-    BottomNavigationView bottomNavigationView;
-    @BindView(R.id.first_screen_navigation_view)
-    NavigationView navigationView;
+    @BindView(R.id.first_screen_toolbar) Toolbar toolbar;
+    @BindView(R.id.first_screen_drawerlayout) DrawerLayout drawerLayout;
+    @BindView(R.id.first_screen_bottom_navigation) BottomNavigationView bottomNavigationView;
+    @BindView(R.id.first_screen_navigation_view) NavigationView navigationView;
+
     private ImageView profileImageView;
     private TextView emailTextView;
     private TextView nameTextView;
@@ -183,6 +181,9 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
     private void configureToolbar() {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.im_hungry));
+        toolbar = findViewById(R.id.first_screen_toolbar);
+        toolbar.setTitle((R.string.im_hungry));
+
     }
 
     // Configure DrawerLayout

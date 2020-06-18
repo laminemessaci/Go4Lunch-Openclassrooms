@@ -4,8 +4,16 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
@@ -15,8 +23,12 @@ import com.google.android.material.snackbar.Snackbar;
 import com.lamine.go4lunch.Models.Helper.User;
 import com.lamine.go4lunch.Models.Helper.UserHelper;
 import com.lamine.go4lunch.R;
+import com.lamine.go4lunch.Utils.Prefs;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -26,13 +38,22 @@ import pub.devrel.easypermissions.EasyPermissions;
 public class LogInActivity extends BaseActivity {
 
     //FOR DATA
+    private Prefs prefs;
+    private String currentLanguage = "en", currentLang;
+
     // - Identifier for Sign-In Activity
     private static final int RC_SIGN_IN = 123;
     private final int REQUEST_LOCATION_PERMISSION = 1;
+
     // FOR DESIGN
+    @BindView(R.id.spinner) Spinner spinner;
+    @BindView(R.id.mainActivity_facebook_login) Button buttonFaceBook;
+    @BindView(R.id.mainActivity_google_login) Button buttonGoogle;
+    @BindView(R.id.mainActivity_login) Button buttonEmail;
+    @BindView(R.id.mainActivity_twitter_login) Button twitterLoginButton;
     // - Get Coordinator Layout
-    @BindView(R.id.mainActivity_CoordinatorLayout)
-    CoordinatorLayout coordinatorLayout;
+    @BindView(R.id.mainActivity_CoordinatorLayout) CoordinatorLayout coordinatorLayout;
+
     private String TAG = "permission";
     private String message = "Permission granted";
 
@@ -44,6 +65,9 @@ public class LogInActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        prefs = Prefs.get(this);
+        checkIfLanguageIsOk();
 
         requestLocationPermission();
 
@@ -240,4 +264,92 @@ public class LogInActivity extends BaseActivity {
             EasyPermissions.requestPermissions(this, getResources().getString(R.string.location_permission), REQUEST_LOCATION_PERMISSION, perms);
         }
     }
+
+    // -------------------
+    // PREFERENCES USER LANGUAGE
+    // -------------------
+    // Check language prefs and purpose choice if null
+    private void checkIfLanguageIsOk() {
+        String locale = prefs.getLanguage();
+        if(locale != null && !locale.isEmpty()){
+            setLocale(locale);
+            spinner.setVisibility(View.GONE);
+        }else{
+            configureSpinner();
+        }
+    }
+
+    // Spinner configuration to select language
+    private void configureSpinner() {
+        spinner.setVisibility(View.VISIBLE);
+        hideButtons();
+        currentLanguage = getIntent().getStringExtra(currentLang);
+        List<String> list = new ArrayList<>();
+
+        list.add(getResources().getString(R.string.select));
+        list.add(getResources().getString(R.string.en));
+        list.add(getResources().getString(R.string.fr));
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                switch (position) {
+                    case 0:
+                        break;
+                    case 1:
+                        setLocale("en");
+                        prefs.storeLanguageChoice("en");
+                        break;
+                    case 2:
+                        setLocale("fr");
+                        prefs.storeLanguageChoice("fr");
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+    }
+
+    // Hide connexion buttons
+    private void hideButtons() {
+        buttonEmail.setVisibility(View.GONE);
+        buttonFaceBook.setVisibility(View.GONE);
+        buttonGoogle.setVisibility(View.GONE);
+        twitterLoginButton.setVisibility(View.GONE);
+    }
+
+
+    // Set new language to apply
+    public void setLocale(String localeName) {
+        currentLanguage = getIntent().getStringExtra(currentLang);
+        if (!localeName.equals(currentLanguage)) {
+            Locale myLocale = new Locale(localeName);
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+            Intent refresh = new Intent(this, LogInActivity.class);
+            refresh.putExtra(currentLang, localeName);
+            refresh.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+            startActivity(refresh);
+        }
+        showButtons();
+    }
+
+    // Show connexion buttons
+    private void showButtons() {
+        buttonEmail.setVisibility(View.VISIBLE);
+        buttonFaceBook.setVisibility(View.VISIBLE);
+        buttonGoogle.setVisibility(View.VISIBLE);
+        twitterLoginButton.setVisibility(View.VISIBLE);
+    }
+
 }

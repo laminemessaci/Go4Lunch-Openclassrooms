@@ -37,6 +37,7 @@ import io.reactivex.observers.DisposableObserver;
 
 public class RestaurantActivity extends BaseActivity {
 
+
     private static final String GET_ID = "ID";
     private static final String JOIN = "JOIN";
     private static final String NO_LONGER_JOIN = "DISJOINT";
@@ -44,6 +45,7 @@ public class RestaurantActivity extends BaseActivity {
     private static final String API_KEY = "&key=AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA";
     private static final String PICTURE_URL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&maxheight=150&key=AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA&photoreference=";
     private static final String GET_RESTAURANT_ID = "restaurantId";
+
     @BindView(R.id.activity_restaurant_restaurant_picture) ImageView restaurantImageView;
     @BindView(R.id.activity_restaurant_address) TextView restaurantAddress;
     @BindView(R.id.activity_restaurant_name) TextView restaurantName;
@@ -51,6 +53,7 @@ public class RestaurantActivity extends BaseActivity {
     @BindView(R.id.activity_restaurant_ratingBar) RatingBar ratingBar;
     @BindView(R.id.activity_restaurant_button_like) Button likeBtn;
     @BindView(R.id.restaurant_activity_go_button) FloatingActionButton floatButton;
+
     private Disposable disposable;
     private String placeId;
     private List<User> userList;
