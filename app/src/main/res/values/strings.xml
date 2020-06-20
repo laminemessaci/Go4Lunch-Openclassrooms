@@ -1,3 +1,94 @@
 <resources>
-    <string name="app_name">Go4Lunch</string>
+
+    <string name="app_name" translatable="false">Go4Lunch</string>
+    <string name="facebook_button">Sign in with Facebook</string>
+    <string name="google_button">Sign in with Google</string>
+    <string name="Go4Lunch" translatable="false">Go4Lunch</string>
+    <string name="MainTextview" translatable="false">Find a nice restaurant and invite your co-workers for lunch!</string>
+
+
+
+    <!-- FACEBOOK STRINGS -->
+    <string name="facebook_application_id" translatable="false">306169624105615</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">tools:ignore="UnusedResources">fb306169624105615</string>
+
+
+
+    <!-- TWITTER STRINGS -->
+    <string name="twitter_consumer_key" translatable="false">DTZQJEjoYD0srqtMrkhSHfKUT</string>
+    <string name="twitter_consumer_secret" translatable="false">WqAepQMRD4WFZJENTXSGwuj9CWZ9ImyzhXS34VbiNJmhuqH8nF</string>
+
+    <!-- BOTTOM NAVIGATION VIEW -->
+    <string name="map_view" translatable="true">Map View</string>
+    <string name="list_view" translatable="true">List View</string>
+    <string name="workmates" translatable="true">Workmates</string>
+
+    <!-- NAVIGATION MENU -->
+    <string name="yourLunch" translatable="true">YOUR LUNCH</string>
+    <string name="settings" translatable="true">SETTINGS</string>
+    <string name="logout" translatable="true">LOGOUT</string>
+
+    <!-- NAVIGATION DRAWER -->
+    <string name="navigation_drawer_open" translatable="true">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="true">Close navigation drawer</string>
+
+    <!-- GOOGLE MAP -->
+    <string name="title_activity_maps" translatable="false">Map</string>
+
+    <string name="later">Later</string>
+    <string name="select">Select language</string>
+    <string name="en">English</string>
+    <string name="fr">French</string>
+
+    <!-- Go4Lunc -->
+    <string name="open">Open now</string>
+    <string name="close">Closed</string>
+    <string name="website">WEBSITE</string>
+    <string name="LIKE">LIKE</string>
+    <string name="call">CALL</string>
+    <string name="UNLIKE">UNLIKE</string>
+    <string name="like_restaurant">You like this restaurant !</string>
+    <string name="dislike_restaurant">You dislike this restaurant !</string>
+    <string name="error_restaurant">An error has occurred, please try again later.</string>
+    <string name="website_unavailable">No website available.</string>
+    <string name="phone_unavailable">No phone number available.</string>
+    <string name="connexion_success">Connexion success !</string>
+    <string name="authentication_canceled">Authentication canceled</string>
+    <string name="no_network">No network</string>
+    <string name="error_during_creating">Error during creating new user</string>
+    <string name="location_permission">Please grant the location permission</string>
+    <string name="time_unavailable">No schedule available</string>
+    <string name="list_unit_distance">%1$sm</string>
+    <string name="restaurant_opening_not_know">Opening hours are not known</string>
+    <string name="user_name">%1$s is eating at %2$s</string>
+    <string name="decided">Haven\'t decided yet</string>
+    <string name="join">You join this restaurant !</string>
+    <string name="no_longer_join">You no longer join this restaurant</string>
+    <string name="no_email_found">No email found</string>
+    <string name="no_username_found">No username found</string>
+    <string name="im_hungry" translatable="false">I\'m Hungry!</string>
+    <string name="restaurant_mates_number">(%1$d)</string>
+    <string name="login_password">Login / Password</string>
+    <string name="sign_in_with_twitter">Sign in with Twitter</string>
+    <string name="no_restaurant">No restaurant booked</string>
+    <string name="setting">Settings</string>
+    <string name="remind_me_where_i_eat">Remember where I eat every day at lunchtime</string>
+    <string name="off">off</string>
+    <string name="on">on</string>
+    <string name="search_a_restaurant">Search a restaurant</string>
+
+    <string name="notification">You eat at %1$s where is at %2$s with : %3$s</string>
+    <string name="notification_alone">You eat at %1$s where is at %2$s with : No one</string>
+    <string name="notification_title">Notification</string>
+
+    <string name="notification_is_enabled">Notification is enabled and will send at 12am.</string>
+    <string name="notification_is_disabled">Notification is disabled.</string>
+
+    <string name="channel_name">Message from Firebase</string>
+    <string name="content_notification">You will lunch at %1$s with : </string>
+    <string name="content_title_notification">You receive a new notification from Go4Lunch</string>
+
+
+
+
 </resources>

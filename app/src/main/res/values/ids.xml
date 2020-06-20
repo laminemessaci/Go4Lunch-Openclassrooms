@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Inside `res/values/ids.xml` -->
+    <!-- You also need to define R.id.item_click_support using ids.xml -->
+        <item name="item_click_support" type="id" />
+        <item name="search_icon" type="id"/>
+</resources>
