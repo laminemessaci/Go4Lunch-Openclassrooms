@@ -1,14 +1,5 @@
 package com.lamine.go4lunch.Controller;
 
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -23,10 +14,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.firebase.ui.auth.AuthUI;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.libraries.places.api.Places;
@@ -49,7 +47,6 @@ import com.lamine.go4lunch.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import butterknife.BindView;
 
@@ -181,14 +178,10 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
     private void configureToolbar() {
         //Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.im_hungry));
         //toolbar.setTitle((R.string.im_hungry));
-        //setSupportActionBar(toolbar);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.first_screen_toolbar);
-        toolbar.setTitle("Help");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
+        this.toolbar = findViewById(R.id.first_screen_toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("Help");
 
     }
 

@@ -42,7 +42,11 @@ import java.util.Objects;
 import io.reactivex.observers.DisposableObserver;
 
 
-public class MapViewFragment extends BaseFragment implements OnMapReadyCallback, GoogleMap.OnMyLocationClickListener, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnCameraIdleListener{
+public class MapViewFragment extends BaseFragment implements OnMapReadyCallback,
+                                                             GoogleMap.OnMyLocationClickListener,
+                                                             GoogleMap.OnMyLocationButtonClickListener,
+                                                             GoogleMap.OnMarkerClickListener,
+                                                             GoogleMap.OnCameraIdleListener{
 
     public List<NearbyResult> nearbyResultList;
     private SupportMapFragment mapFragment;
@@ -131,6 +135,8 @@ public class MapViewFragment extends BaseFragment implements OnMapReadyCallback,
             mGoogleMap.setOnMyLocationButtonClickListener(this);
             mGoogleMap.setOnMyLocationClickListener(this);
             mGoogleMap.setOnCameraIdleListener(this);
+            //mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
+
         }
         LatLng latLng = new LatLng(mGPSTracker.getLatitude(), mGPSTracker.getLongitude());
         position = mGPSTracker.getLatitude() + "," + mGPSTracker.getLongitude();
@@ -168,7 +174,7 @@ public class MapViewFragment extends BaseFragment implements OnMapReadyCallback,
         return false;
     }
 
-    // Add markers for each result on Gmap
+    // Add markers for each result get by the Google API on Gmap
     public void updateGoogleUi(List<NearbyResult> nearbyResultListFilter) {
         mGoogleMap.clear();
         isFirstLifeCycle = false;

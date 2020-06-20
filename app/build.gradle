@@ -27,7 +27,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -35,6 +35,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    // BATCH
+    implementation 'com.batch.android:batch-sdk:1.14.2'
 
     // FOR DESIGN
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -67,6 +69,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-auth:5.0.0'
     implementation 'com.google.firebase:firebase-core:17.2.0'
     implementation 'com.google.firebase:firebase-messaging:20.0.0'
+    implementation 'com.google.firebase:firebase-inappmessaging-display:19.0.7'
     implementation 'com.google.firebase:firebase-firestore:21.1.1'
     implementation 'com.firebaseui:firebase-ui-firestore:5.0.0'
 
@@ -85,10 +88,13 @@ dependencies {
 // For developers using AndroidX in their applications // EASY PERMISSIONS
     implementation 'pub.devrel:easypermissions:2.0.1'
 
+
     // CUSTOM TABS
     implementation 'androidx.browser:browser:1.0.0'
 
 //multidex
     implementation 'androidx.multidex:multidex:2.0.1'
+
+
 }
 apply plugin: 'com.google.gms.google-services'

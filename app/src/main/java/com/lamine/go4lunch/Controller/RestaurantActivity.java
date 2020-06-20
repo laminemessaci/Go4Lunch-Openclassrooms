@@ -1,10 +1,5 @@
 package com.lamine.go4lunch.Controller;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.browser.customtabs.CustomTabsIntent;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,6 +9,10 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -35,16 +34,16 @@ import butterknife.OnClick;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
 
+import static com.lamine.go4lunch.Utils.Constants.APIKey;
+import static com.lamine.go4lunch.Utils.Constants.GET_ID;
+import static com.lamine.go4lunch.Utils.Constants.GET_RESTAURANT_ID;
+import static com.lamine.go4lunch.Utils.Constants.JOIN;
+import static com.lamine.go4lunch.Utils.Constants.NO_LONGER_JOIN;
+import static com.lamine.go4lunch.Utils.Constants.PICTURE_URL;
+import static com.lamine.go4lunch.Utils.Constants.TEL;
+
 public class RestaurantActivity extends BaseActivity {
 
-
-    private static final String GET_ID = "ID";
-    private static final String JOIN = "JOIN";
-    private static final String NO_LONGER_JOIN = "DISJOINT";
-    private static final String TEL = "tel";
-    private static final String API_KEY = "&key=AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA";
-    private static final String PICTURE_URL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&maxheight=150&key=AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA&photoreference=";
-    private static final String GET_RESTAURANT_ID = "restaurantId";
 
     @BindView(R.id.activity_restaurant_restaurant_picture) ImageView restaurantImageView;
     @BindView(R.id.activity_restaurant_address) TextView restaurantAddress;
@@ -136,7 +135,7 @@ public class RestaurantActivity extends BaseActivity {
         if (!(result.getPhotos() == null)) {
             if (!(result.getPhotos().isEmpty())) {
                 Glide.with(this)
-                        .load(PICTURE_URL + result.getPhotos().get(0).getPhotoReference() + API_KEY)
+                        .load(PICTURE_URL + result.getPhotos().get(0).getPhotoReference() + "&key="+APIKey)
                         .centerCrop()
                         .into(restaurantImageView);
             }

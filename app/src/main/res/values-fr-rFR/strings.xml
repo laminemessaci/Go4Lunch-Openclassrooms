@@ -52,4 +52,9 @@
     <string name="select">Choisir un language</string>
     <string name="en">English</string>
     <string name="fr">French</string>
+    <string name="notification_is_enabled">La notification est activée, elle sera diffusée à 12:00</string>
+    <string name="notification_is_disabled">La notification est desactivée</string>
+    <string name="channel_name">Message en provenence du Firbase</string>
+    <string name="content_notification">Vous allez déjene à %1$s avec :</string>
+    <string name="content_title_notification">Vous avez reçu une notification de la part de Go4Lunch</string>
 </resources>

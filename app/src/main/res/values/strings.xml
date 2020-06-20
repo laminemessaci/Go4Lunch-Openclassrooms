@@ -1,15 +1,17 @@
 <resources>
-    <!-- FACEBOOK STRINGS -->
-    <string name="facebook_application_id" translatable="false">306169624105615</string>
-    <string name="facebook_login_protocol_scheme" translatable="false">tools:ignore="UnusedResources">fb306169624105615</string>
-
 
     <string name="app_name" translatable="false">Go4Lunch</string>
     <string name="facebook_button">Sign in with Facebook</string>
     <string name="google_button">Sign in with Google</string>
     <string name="Go4Lunch" translatable="false">Go4Lunch</string>
     <string name="MainTextview" translatable="false">Find a nice restaurant and invite your co-workers for lunch!</string>
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+
+
+
+    <!-- FACEBOOK STRINGS -->
+    <string name="facebook_application_id" translatable="false">306169624105615</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">tools:ignore="UnusedResources">fb306169624105615</string>
+
 
 
     <!-- TWITTER STRINGS -->
@@ -74,7 +76,19 @@
     <string name="off">off</string>
     <string name="on">on</string>
     <string name="search_a_restaurant">Search a restaurant</string>
+
     <string name="notification">You eat at %1$s where is at %2$s with : %3$s</string>
     <string name="notification_alone">You eat at %1$s where is at %2$s with : No one</string>
     <string name="notification_title">Notification</string>
+
+    <string name="notification_is_enabled">Notification is enabled and will send at 12am.</string>
+    <string name="notification_is_disabled">Notification is disabled.</string>
+
+    <string name="channel_name">Message from Firebase</string>
+    <string name="content_notification">You will lunch at %1$s with : </string>
+    <string name="content_title_notification">You receive a new notification from Go4Lunch</string>
+
+
+
+
 </resources>

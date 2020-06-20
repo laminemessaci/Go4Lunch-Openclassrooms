@@ -31,7 +31,7 @@ public class UserHelper {
     private static final String GET_URL_PICTURE = "urlPicture";
     private static final String GET_USERNAME = "username";
 
-    private static CollectionReference getUsersCollection() {
+    public static CollectionReference getUsersCollection() {
         return FirebaseFirestore.getInstance().collection(COLLECTION_USERS);
     }
 
