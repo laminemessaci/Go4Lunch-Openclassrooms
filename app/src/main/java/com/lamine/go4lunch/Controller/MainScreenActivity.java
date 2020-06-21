@@ -50,6 +50,10 @@ import java.util.List;
 
 import butterknife.BindView;
 
+import static com.lamine.go4lunch.Utils.Constants.GET_RESTAURANT_ID;
+import static com.lamine.go4lunch.Utils.Constants.ID;
+import static com.lamine.go4lunch.Utils.Constants.SIGN_OUT_TASK;
+
 public class MainScreenActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     // FOR DESIGN
@@ -65,10 +69,6 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
     private AutoCompleteTextView autoCompleteTextView;
     private ArrayAdapter<String> adapter;
 
-    // FOR DATA
-    private static final int SIGN_OUT_TASK = 10;
-    public static final String ID = "ID";
-    private static final String GET_RESTAURANT_ID = "restaurantId";
 
     @Override
     public int getFragmentLayout() {
