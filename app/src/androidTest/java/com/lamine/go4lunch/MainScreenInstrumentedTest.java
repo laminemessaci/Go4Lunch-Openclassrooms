@@ -56,10 +56,13 @@ public class MainScreenInstrumentedTest {
 
     @Test
     public void testBottomNavigationViewItemClick() {
+
         onView(withId(R.id.map_view)).perform(click())
                 .check(matches(isCompletelyDisplayed()));
+
         onView(withId(R.id.list_view)).perform(click())
                 .check(matches(isCompletelyDisplayed()));
+
         onView(withId(R.id.workmates)).perform(click())
                 .check(matches(isCompletelyDisplayed()));
     }
@@ -94,7 +97,7 @@ public class MainScreenInstrumentedTest {
     public void testSearchButtonBar() {
         onView(withId(R.id.search_icon)).perform(click());
         onView(withId(R.id.autoCompleteTextView)).perform(click());
-        onView(withId(R.id.autoCompleteTextView)).perform(typeText("pizzatel"));
+        onView(withId(R.id.autoCompleteTextView)).perform(typeText("Le Grigno"));
     }
 
     @Test

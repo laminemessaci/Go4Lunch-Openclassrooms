@@ -6,13 +6,9 @@
     <string name="Go4Lunch" translatable="false">Go4Lunch</string>
     <string name="MainTextview" translatable="false">Find a nice restaurant and invite your co-workers for lunch!</string>
 
-
-
     <!-- FACEBOOK STRINGS -->
     <string name="facebook_application_id" translatable="false">306169624105615</string>
     <string name="facebook_login_protocol_scheme" translatable="false">tools:ignore="UnusedResources">fb306169624105615</string>
-
-
 
     <!-- TWITTER STRINGS -->
     <string name="twitter_consumer_key" translatable="false">DTZQJEjoYD0srqtMrkhSHfKUT</string>
@@ -77,6 +73,7 @@
     <string name="on">on</string>
     <string name="search_a_restaurant">Search a restaurant</string>
 
+    <!--Notifications -->
     <string name="notification">You eat at %1$s where is at %2$s with : %3$s</string>
     <string name="notification_alone">You eat at %1$s where is at %2$s with : No one</string>
     <string name="notification_title">Notification</string>
