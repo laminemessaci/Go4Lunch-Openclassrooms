@@ -19,17 +19,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import static com.lamine.go4lunch.Utils.Constants.GET_JOINED_RESTAURANT;
+import static com.lamine.go4lunch.Utils.Constants.GET_JOINED_RESTAURANT_ID;
+import static com.lamine.go4lunch.Utils.Constants.GET_RESTAURANT_VICINITY;
+import static com.lamine.go4lunch.Utils.Constants.GET_USERNAME;
+import static com.lamine.go4lunch.Utils.Constants.GET_USER_ID;
+
 /**
  * Created by Lamine MESSACI on 20/06/2020.
  *
  */
 public class NotificationInterceptor extends BatchNotificationInterceptor {
 
-    private static final String GET_JOINED_RESTAURANT = "joinedRestaurant";
-    private static final String GET_JOINED_RESTAURANT_ID = "restaurantId";
-    private static final String GET_RESTAURANT_VICINITY = "vicinity";
-    private static final String GET_USERNAME = "username";
-    private static final String GET_USER_ID = "uid";
+
     private String currentUserJoinedRestaurant;
     private String restaurantVicinity;
     private String currentUserJoinedRestaurantId;

@@ -13,8 +13,9 @@ import java.util.List;
 import static android.content.Context.MODE_PRIVATE;
 
 /**
- * Created by Lamine MESSACI on 17/06/2020.
+ * Created by Lamine MESSACI on 12/06/2020.
  */
+
 public class Prefs {
 
     private static final String LANGUAGE_CHOICE = "language";
