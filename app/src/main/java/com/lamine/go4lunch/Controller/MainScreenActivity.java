@@ -149,14 +149,17 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
                 case R.id.list_view:
                     displayFragments(ListViewFragment.newInstance());
                     cleanAutoCompleteTextView();
+                   // hideToolbarAndBoottomBar();
                     break;
                 case R.id.workmates:
                     displayFragments(WorkmatesFragment.newInstance());
                     cleanAutoCompleteTextView();
+                   // hideToolbarAndBoottomBar();
                     break;
                 default:
                     displayFragments(MapViewFragment.newInstance());
                     cleanAutoCompleteTextView();
+                   // hideToolbarAndBoottomBar();
                     break;
             }
             return true;
@@ -178,7 +181,6 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
     private void configureToolbar() {
         //Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.im_hungry));
         //toolbar.setTitle((R.string.im_hungry));
-
         this.toolbar = findViewById(R.id.first_screen_toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("Help");
@@ -379,5 +381,11 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
             return true;
         });
         return super.onPrepareOptionsMenu(menu);
+    }
+
+    // Hide toolbar
+    private void hideToolbarAndBoottomBar(){
+        toolbar.setVisibility(View.GONE);
+        bottomNavigationView.setVisibility(View.GONE);
     }
 }

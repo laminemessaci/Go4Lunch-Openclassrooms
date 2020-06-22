@@ -10,6 +10,8 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -52,6 +54,8 @@ public class RestaurantActivity extends BaseActivity {
     @BindView(R.id.activity_restaurant_ratingBar) RatingBar ratingBar;
     @BindView(R.id.activity_restaurant_button_like) Button likeBtn;
     @BindView(R.id.restaurant_activity_go_button) FloatingActionButton floatButton;
+    @BindView(R.id.toolbar_restaurant)
+    Toolbar toolbar;
 
     private Disposable disposable;
     private String placeId;
@@ -68,7 +72,15 @@ public class RestaurantActivity extends BaseActivity {
 
         this.configureRecyclerView();
         this.executeHttpRequestWithRetrofit();
+        this.setSupportActionBar(toolbar);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        toolbar.setNavigationOnClickListener(v -> {
+            this.finish();
+        });
     }
+    //add toolbar and back home
 
     @Override
     public int getFragmentLayout() {
