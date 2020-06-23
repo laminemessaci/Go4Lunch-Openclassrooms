@@ -6,9 +6,13 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.lamine.go4lunch.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class SettingsActivity extends AppCompatActivity {
     private Switch enableNotification; // Used to add a switch
@@ -16,10 +20,13 @@ public class SettingsActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences; // Used to get our shared preferences
     private SharedPreferences.Editor editor; // Used to get data from the preferences
 
+    @BindView(R.id.toolbar_setting) Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        ButterKnife.bind(this);
 
         // Bind all the view
         enableNotification = findViewById(R.id.notification_switch);
@@ -33,7 +40,16 @@ public class SettingsActivity extends AppCompatActivity {
         if(getSwitchState()) enableNotification.setChecked(true);
         else enableNotification.setChecked(false);
 
+        this.setSupportActionBar(toolbar);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        toolbar.setNavigationOnClickListener(v -> {
+            this.finish();
+        });
+
         updateSwitchState();
+
     }
 
     // Method that save the state of the switch in a boolean and display a snackbar to warn the user

@@ -60,8 +60,7 @@ public class RestaurantActivity extends BaseActivity {
     Button likeBtn;
     @BindView(R.id.restaurant_activity_go_button)
     FloatingActionButton floatButton;
-    @BindView(R.id.toolbar_restaurant)
-    Toolbar toolbar;
+    @BindView(R.id.toolbar_restaurant) Toolbar toolbar;
 
     private Disposable disposable;
     private String placeId;
