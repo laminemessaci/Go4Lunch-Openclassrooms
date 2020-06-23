@@ -50,6 +50,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
+import static com.lamine.go4lunch.Models.Helper.UserHelper.getCurrentUser;
 import static com.lamine.go4lunch.Utils.Constants.GET_RESTAURANT_ID;
 import static com.lamine.go4lunch.Utils.Constants.ID;
 import static com.lamine.go4lunch.Utils.Constants.SIGN_OUT_TASK;
@@ -113,7 +114,7 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
 
         switch(id) {
             case R.id.yourLunch:
-                UserHelper.getBookingRestaurant(UserHelper.getCurrentUser().getUid()).addOnCompleteListener(task -> {
+                UserHelper.getBookingRestaurant(getCurrentUser().getUid()).addOnCompleteListener(task -> {
                     if(task.isSuccessful()) {
                         String restaurantId = task.getResult().getString(GET_RESTAURANT_ID);
                         if(restaurantId != null) {
@@ -153,17 +154,14 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
                 case R.id.list_view:
                     displayFragments(ListViewFragment.newInstance());
                     cleanAutoCompleteTextView();
-                    // hideToolbarAndBoottomBar();
                     break;
                 case R.id.workmates:
                     displayFragments(WorkmatesFragment.newInstance());
                     cleanAutoCompleteTextView();
-                    // hideToolbarAndBoottomBar();
                     break;
                 default:
                     displayFragments(MapViewFragment.newInstance());
                     cleanAutoCompleteTextView();
-                    // hideToolbarAndBoottomBar();
                     break;
             }
             return true;
@@ -208,25 +206,25 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
     // Update UI when activity is created
     private void updateUIWhenCreating() {
 
-        if(UserHelper.getCurrentUser() != null) {
+        if(getCurrentUser() != null) {
 
             // Get picture URL from FireBase
-            if(UserHelper.getCurrentUser().getPhotoUrl() != null) {
+            if(getCurrentUser().getPhotoUrl() != null) {
                 Glide.with(this)
-                        .load(UserHelper.getCurrentUser().getPhotoUrl())
+                        .load(getCurrentUser().getPhotoUrl())
                         .apply(RequestOptions.circleCropTransform())
                         .into(profileImageView);
             }
 
             // Get email & username
-            String email = TextUtils.isEmpty(UserHelper.getCurrentUser().getEmail()) ?
-                    getResources().getString(R.string.no_email_found) : UserHelper.getCurrentUser().getEmail();
+            String email = TextUtils.isEmpty(getCurrentUser().getEmail()) ?
+                    getResources().getString(R.string.no_email_found) : getCurrentUser().getEmail();
             this.emailTextView.setText(email);
 
-            UserHelper.getUser(UserHelper.getCurrentUser().getUid()).addOnSuccessListener(documentSnapshot -> {
+            UserHelper.getUser(getCurrentUser().getUid()).addOnSuccessListener(documentSnapshot -> {
                 User currentUser = documentSnapshot.toObject(User.class);
-                String username = TextUtils.isEmpty(currentUser.getUsername()) ?
-                        getResources().getString(R.string.no_username_found) : currentUser.getUsername();
+                String username = TextUtils.isEmpty(getCurrentUser().getDisplayName()) ?
+                        getResources().getString(R.string.no_username_found) : getCurrentUser().getDisplayName();
                 nameTextView.setText(username);
             });
         }

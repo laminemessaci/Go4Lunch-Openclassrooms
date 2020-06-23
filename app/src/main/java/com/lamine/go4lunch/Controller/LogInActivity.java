@@ -110,6 +110,7 @@ public class LogInActivity extends BaseActivity {
             this.startActivityIfLogged();
         } else {
             this.startSignInActivityForMailPassword();
+
         }
     }
 
