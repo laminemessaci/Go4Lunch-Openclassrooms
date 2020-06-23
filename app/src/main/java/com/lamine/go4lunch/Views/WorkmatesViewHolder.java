@@ -33,7 +33,7 @@ public class WorkmatesViewHolder extends RecyclerView.ViewHolder {
     // Get the username and picture of the user in fireBase and display it
     @SuppressLint("NewApi")
     void updateData(User user) {
-        if (user.getJoinedRestaurant() != null) {
+        if(user.getJoinedRestaurant() != null) {
             name.setText(itemView.getContext().getString(R.string.user_name, user.getUsername(), user.getJoinedRestaurant()));
             name.setTypeface(name.getTypeface(), Typeface.NORMAL);
             name.setTextColor(itemView.getContext().getColor(R.color.colorBlack));
@@ -46,7 +46,7 @@ public class WorkmatesViewHolder extends RecyclerView.ViewHolder {
             name.setAlpha((float) 0.5);
         }
 
-        if (user.getUrlPicture() != null) {
+        if(user.getUrlPicture() != null) {
             Glide.with(itemView)
                     .load(user.getUrlPicture())
                     .apply(RequestOptions.circleCropTransform())

@@ -97,7 +97,7 @@ public class UserHelper {
 
     public static Boolean deleteLike(String restaurantId, String userId) {
         UserHelper.getLikeForTheRestaurant(restaurantId).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
+            if(task.isSuccessful()) {
                 Map<String, Object> update = new HashMap<>();
                 update.put(userId, FieldValue.delete());
                 UserHelper.getLikedCollection().document(restaurantId).update(update);
@@ -123,13 +123,13 @@ public class UserHelper {
                 .whereEqualTo(GET_RESTAURANT_ID, result.getPlaceId())
                 .get()
                 .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
+                    if(task.isSuccessful()) {
                         List<DocumentSnapshot> myListOfDocuments = task.getResult().getDocuments();
-                        for (DocumentSnapshot documentSnapshot : myListOfDocuments) {
+                        for(DocumentSnapshot documentSnapshot : myListOfDocuments) {
                             User user = documentSnapshot.toObject(User.class);
                             user.setJoinedRestaurant(result.getName());
                             user.setRestaurantId(result.getPlaceId());
-                            if (!user.getUid().equals(getCurrentUser().getUid())) {
+                            if(!user.getUid().equals(getCurrentUser().getUid())) {
                                 users.add(user);
                             }
                         }
@@ -144,11 +144,11 @@ public class UserHelper {
                 .collection(COLLECTION_USERS)
                 .get()
                 .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
+                    if(task.isSuccessful()) {
                         List<DocumentSnapshot> myListOfDocuments = task.getResult().getDocuments();
-                        for (DocumentSnapshot documentSnapshot : myListOfDocuments) {
+                        for(DocumentSnapshot documentSnapshot : myListOfDocuments) {
                             User user = documentSnapshot.toObject(User.class);
-                            if (!user.getUid().equals(getCurrentUser().getUid())) {
+                            if(!user.getUid().equals(getCurrentUser().getUid())) {
                                 users.add(user);
                             }
                         }

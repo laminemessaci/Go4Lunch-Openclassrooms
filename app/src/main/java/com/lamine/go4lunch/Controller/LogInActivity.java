@@ -1,7 +1,5 @@
 package com.lamine.go4lunch.Controller;
 
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -15,6 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ErrorCodes;
@@ -37,14 +37,9 @@ import pub.devrel.easypermissions.EasyPermissions;
 
 public class LogInActivity extends BaseActivity {
 
-    //FOR DATA
-    private Prefs prefs;
-    private String currentLanguage = "en", currentLang;
-
     // - Identifier for Sign-In Activity
     private static final int RC_SIGN_IN = 123;
     private final int REQUEST_LOCATION_PERMISSION = 1;
-
     // FOR DESIGN
     @BindView(R.id.spinner) Spinner spinner;
     @BindView(R.id.mainActivity_facebook_login) Button buttonFaceBook;
@@ -53,7 +48,9 @@ public class LogInActivity extends BaseActivity {
     @BindView(R.id.mainActivity_twitter_login) Button twitterLoginButton;
     // - Get Coordinator Layout
     @BindView(R.id.mainActivity_CoordinatorLayout) CoordinatorLayout coordinatorLayout;
-
+    //FOR DATA
+    private Prefs prefs;
+    private String currentLanguage = "en", currentLang;
     private String TAG = "permission";
     private String message = "Permission granted";
 
@@ -71,7 +68,7 @@ public class LogInActivity extends BaseActivity {
 
         requestLocationPermission();
 
-        if (UserHelper.isCurrentUserLogged()) {
+        if(UserHelper.isCurrentUserLogged()) {
             this.startActivityIfLogged();
         }
     }
@@ -83,7 +80,7 @@ public class LogInActivity extends BaseActivity {
     // Launch Google Sign-in
     @OnClick(R.id.mainActivity_google_login)
     public void onClickGoogleButton() {
-        if (UserHelper.isCurrentUserLogged()) {
+        if(UserHelper.isCurrentUserLogged()) {
             this.startActivityIfLogged();
         } else {
             this.startSignInActivityForGoogle();
@@ -93,7 +90,7 @@ public class LogInActivity extends BaseActivity {
     // Launch Facebook Sign-in
     @OnClick(R.id.mainActivity_facebook_login)
     public void onClickFacebookButton() {
-        if (UserHelper.isCurrentUserLogged()) {
+        if(UserHelper.isCurrentUserLogged()) {
             this.startActivityIfLogged();
         } else {
             this.startSignInActivityForFacebook();
@@ -103,17 +100,18 @@ public class LogInActivity extends BaseActivity {
     // Launch Login Sign-in
     @OnClick(R.id.mainActivity_login)
     public void onClickLoginButton() {
-        if (UserHelper.isCurrentUserLogged()) {
+        if(UserHelper.isCurrentUserLogged()) {
             this.startActivityIfLogged();
         } else {
             this.startSignInActivityForMailPassword();
+
         }
     }
 
     // Launch Login  Twitter Sign-in
     @OnClick(R.id.mainActivity_twitter_login)
     public void onClickTwitterButton() {
-        if (UserHelper.isCurrentUserLogged()) {
+        if(UserHelper.isCurrentUserLogged()) {
             this.startActivityIfLogged();
         } else {
             this.startSignInActivityForTwitter();
@@ -196,15 +194,15 @@ public class LogInActivity extends BaseActivity {
     }
 
     private void createUserFireStore() {
-        if (UserHelper.getCurrentUser() != null) {
+        if(UserHelper.getCurrentUser() != null) {
             String urlPicture = (UserHelper.getCurrentUser().getPhotoUrl() != null) ? UserHelper.getCurrentUser().getPhotoUrl().toString() : null;
             String username = UserHelper.getCurrentUser().getDisplayName();
             String uid = UserHelper.getCurrentUser().getUid();
 
             UserHelper.getUser(UserHelper.getCurrentUser().getUid()).addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
+                if(task.isSuccessful()) {
                     User currentUser = task.getResult().toObject(User.class);
-                    if (currentUser != null && UserHelper.getCurrentUser().getUid().equals(currentUser.getUid())) {
+                    if(currentUser != null && UserHelper.getCurrentUser().getUid().equals(currentUser.getUid())) {
                         UserHelper.updateUser(uid, username, urlPicture);
                         this.startActivityIfLogged();
                     } else {
@@ -226,17 +224,17 @@ public class LogInActivity extends BaseActivity {
 
         IdpResponse response = IdpResponse.fromResultIntent(data);
 
-        if (requestCode == RC_SIGN_IN) {
-            if (resultCode == RESULT_OK) { // SUCCESS
+        if(requestCode == RC_SIGN_IN) {
+            if(resultCode == RESULT_OK) { // SUCCESS
                 showSnackBar(this.coordinatorLayout, getResources().getString(R.string.connexion_success));
                 this.createUserFireStore();
 
             } else { // ERRORS
-                if (response == null) {
+                if(response == null) {
                     showSnackBar(this.coordinatorLayout, getResources().getString(R.string.authentication_canceled));
-                } else if (response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
+                } else if(response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
                     showSnackBar(this.coordinatorLayout, getResources().getString(R.string.no_network));
-                } else if (response.getError().getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
+                } else if(response.getError().getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
                     showSnackBar(this.coordinatorLayout, getResources().getString(R.string.error_restaurant));
                 }
             }
@@ -258,7 +256,7 @@ public class LogInActivity extends BaseActivity {
     @AfterPermissionGranted(REQUEST_LOCATION_PERMISSION)
     public void requestLocationPermission() {
         String[] perms = {Manifest.permission.ACCESS_FINE_LOCATION};
-        if (EasyPermissions.hasPermissions(this, perms)) {
+        if(EasyPermissions.hasPermissions(this, perms)) {
             Log.i(TAG, message);
         } else {
             EasyPermissions.requestPermissions(this, getResources().getString(R.string.location_permission), REQUEST_LOCATION_PERMISSION, perms);
@@ -271,10 +269,10 @@ public class LogInActivity extends BaseActivity {
     // Check language prefs and purpose choice if null
     private void checkIfLanguageIsOk() {
         String locale = prefs.getLanguage();
-        if(locale != null && !locale.isEmpty()){
+        if(locale != null && !locale.isEmpty()) {
             setLocale(locale);
             spinner.setVisibility(View.GONE);
-        }else{
+        } else {
             configureSpinner();
         }
     }
@@ -297,7 +295,7 @@ public class LogInActivity extends BaseActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                switch (position) {
+                switch(position) {
                     case 0:
                         break;
                     case 1:
@@ -329,7 +327,7 @@ public class LogInActivity extends BaseActivity {
     // Set new language to apply
     public void setLocale(String localeName) {
         currentLanguage = getIntent().getStringExtra(currentLang);
-        if (!localeName.equals(currentLanguage)) {
+        if(!localeName.equals(currentLanguage)) {
             Locale myLocale = new Locale(localeName);
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();

@@ -27,7 +27,6 @@ import static com.lamine.go4lunch.Utils.Constants.GET_USER_ID;
 
 /**
  * Created by Lamine MESSACI on 20/06/2020.
- *
  */
 public class NotificationInterceptor extends BatchNotificationInterceptor {
 
@@ -55,7 +54,7 @@ public class NotificationInterceptor extends BatchNotificationInterceptor {
         Task<Void> delay = source.getTask();
 
         UserHelper.getBookingRestaurant(UserHelper.getCurrentUser().getUid()).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
+            if(task.isSuccessful()) {
                 currentUserJoinedRestaurant = task.getResult().getString(GET_JOINED_RESTAURANT);
                 currentUserJoinedRestaurantId = task.getResult().getString(GET_JOINED_RESTAURANT_ID);
                 restaurantVicinity = task.getResult().getString(GET_RESTAURANT_VICINITY);
@@ -66,7 +65,7 @@ public class NotificationInterceptor extends BatchNotificationInterceptor {
         });
         try {
             Tasks.await(delay);
-        } catch (InterruptedException | ExecutionException e) {
+        } catch(InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
 
@@ -75,14 +74,14 @@ public class NotificationInterceptor extends BatchNotificationInterceptor {
         Task<Void> delayTask = taskCompletionSource.getTask();
 
         UserHelper.getAllUsernames().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
+            if(task.isSuccessful()) {
                 String uid = UserHelper.getCurrentUser().getUid();
-                for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                for(QueryDocumentSnapshot documentSnapshot : task.getResult()) {
                     String coworkersJoinedRestaurant = documentSnapshot.getString(GET_JOINED_RESTAURANT_ID);
-                    if (coworkersJoinedRestaurant != null) {
-                        if (coworkersJoinedRestaurant.equals(currentUserJoinedRestaurantId)) {
+                    if(coworkersJoinedRestaurant != null) {
+                        if(coworkersJoinedRestaurant.equals(currentUserJoinedRestaurantId)) {
                             String userId = documentSnapshot.getString(GET_USER_ID);
-                            if (userId != null && !userId.equals(uid)) {
+                            if(userId != null && !userId.equals(uid)) {
                                 String coworkersName = documentSnapshot.getString(GET_USERNAME);
                                 userList.add(coworkersName);
                             }
@@ -96,15 +95,15 @@ public class NotificationInterceptor extends BatchNotificationInterceptor {
         });
         try {
             Tasks.await(delayTask);
-        } catch (ExecutionException | InterruptedException e) {
+        } catch(ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
 
         // intercept the notification and modify it before display
         String textBrackets = userList.toString().replace("[", "").replace("]", "");
 
-        if (currentUserJoinedRestaurant != null) {
-            if (userList.isEmpty()) {
+        if(currentUserJoinedRestaurant != null) {
+            if(userList.isEmpty()) {
                 new NotificationCompat.BigTextStyle(defaultBuilder).bigText(context.getString(R.string.notification_alone, currentUserJoinedRestaurant, restaurantVicinity));
             } else {
                 new NotificationCompat.BigTextStyle(defaultBuilder).bigText(context.getString(R.string.notification, currentUserJoinedRestaurant, restaurantVicinity, textBrackets));
