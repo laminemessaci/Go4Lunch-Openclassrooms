@@ -1,14 +1,11 @@
 package com.lamine.go4lunch.Utils;
 
+import com.lamine.go4lunch.BuildConfig;
+
 /**
  * Created by Lamine MESSACI on 20/06/2020.
  */
 public class Constants {
-
-
-
-    public static final String APIKey = "AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA";
-
 
     //----------------------------
     // MainScreenActivity
@@ -22,10 +19,10 @@ public class Constants {
     // RestaurantActivity
     //----------------------------
     public static final String GET_ID = "ID";
-    public  static final String JOIN = "JOIN";
+    public static final String JOIN = "JOIN";
     public static final String NO_LONGER_JOIN = "DISJOINT";
     public static final String TEL = "tel";
-    public static final String PICTURE_URL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&maxheight=150&key="+APIKey+"&photoreference=";
+    public static final String PICTURE_URL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&maxheight=150&key=" + BuildConfig.MAPS_API_KEY + "&photoreference=";
 
 
     //----------------------------

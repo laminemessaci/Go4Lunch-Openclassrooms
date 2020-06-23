@@ -10,7 +10,6 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.lamine.go4lunch.BuildConfig;
 import com.lamine.go4lunch.Models.Details.Details;
 import com.lamine.go4lunch.Models.Details.Result;
 import com.lamine.go4lunch.Models.Helper.User;
@@ -36,7 +36,6 @@ import butterknife.OnClick;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
 
-import static com.lamine.go4lunch.Utils.Constants.APIKey;
 import static com.lamine.go4lunch.Utils.Constants.GET_ID;
 import static com.lamine.go4lunch.Utils.Constants.GET_RESTAURANT_ID;
 import static com.lamine.go4lunch.Utils.Constants.JOIN;
@@ -47,13 +46,20 @@ import static com.lamine.go4lunch.Utils.Constants.TEL;
 public class RestaurantActivity extends BaseActivity {
 
 
-    @BindView(R.id.activity_restaurant_restaurant_picture) ImageView restaurantImageView;
-    @BindView(R.id.activity_restaurant_address) TextView restaurantAddress;
-    @BindView(R.id.activity_restaurant_name) TextView restaurantName;
-    @BindView(R.id.activity_restaurant_recycler) RecyclerView recyclerView;
-    @BindView(R.id.activity_restaurant_ratingBar) RatingBar ratingBar;
-    @BindView(R.id.activity_restaurant_button_like) Button likeBtn;
-    @BindView(R.id.restaurant_activity_go_button) FloatingActionButton floatButton;
+    @BindView(R.id.activity_restaurant_restaurant_picture)
+    ImageView restaurantImageView;
+    @BindView(R.id.activity_restaurant_address)
+    TextView restaurantAddress;
+    @BindView(R.id.activity_restaurant_name)
+    TextView restaurantName;
+    @BindView(R.id.activity_restaurant_recycler)
+    RecyclerView recyclerView;
+    @BindView(R.id.activity_restaurant_ratingBar)
+    RatingBar ratingBar;
+    @BindView(R.id.activity_restaurant_button_like)
+    Button likeBtn;
+    @BindView(R.id.restaurant_activity_go_button)
+    FloatingActionButton floatButton;
     @BindView(R.id.toolbar_restaurant)
     Toolbar toolbar;
 
@@ -134,7 +140,7 @@ public class RestaurantActivity extends BaseActivity {
         restaurantAddress.setText(vicinity);
 
         // Get the restaurant rating
-        if (result.getRating() != 0) {
+        if(result.getRating() != 0) {
             double googleRating = result.getRating();
             double rating = googleRating / 5 * 3;
             this.ratingBar.setRating((float) rating);
@@ -144,10 +150,10 @@ public class RestaurantActivity extends BaseActivity {
         }
 
         // Get the restaurant picture
-        if (!(result.getPhotos() == null)) {
-            if (!(result.getPhotos().isEmpty())) {
+        if(!(result.getPhotos() == null)) {
+            if(!(result.getPhotos().isEmpty())) {
                 Glide.with(this)
-                        .load(PICTURE_URL + result.getPhotos().get(0).getPhotoReference() + "&key="+APIKey)
+                        .load(PICTURE_URL + result.getPhotos().get(0).getPhotoReference() + "&key=" + BuildConfig.MAPS_API_KEY)
                         .centerCrop()
                         .into(restaurantImageView);
             }
@@ -174,8 +180,8 @@ public class RestaurantActivity extends BaseActivity {
 
     @OnClick(R.id.restaurant_activity_go_button)
     public void onClickFloatingButton(View v) {
-        if (v.getId() == R.id.restaurant_activity_go_button) {
-            if (JOIN.equals(floatButton.getTag())) {
+        if(v.getId() == R.id.restaurant_activity_go_button) {
+            if(JOIN.equals(floatButton.getTag())) {
                 this.joinTheRestaurant();
             } else {
                 this.disjointTheRestaurant();
@@ -202,7 +208,7 @@ public class RestaurantActivity extends BaseActivity {
 
     @OnClick(R.id.activity_restaurant_button_call)
     public void onClickCall() {
-        if (result.getFormattedPhoneNumber() != null) {
+        if(result.getFormattedPhoneNumber() != null) {
             Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.fromParts(TEL, result.getFormattedPhoneNumber(), null));
             startActivity(callIntent);
         } else {
@@ -213,7 +219,7 @@ public class RestaurantActivity extends BaseActivity {
     // Display the restaurant website when the user click on the button
     @OnClick(R.id.activity_restaurant_button_website)
     public void onClickWeb() {
-        if (result.getWebsite() != null) {
+        if(result.getWebsite() != null) {
             this.configureCustomTabs();
 //            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(result.getWebsite()));
 //            startActivity(browserIntent);
@@ -224,8 +230,8 @@ public class RestaurantActivity extends BaseActivity {
 
     @OnClick(R.id.activity_restaurant_button_like)
     public void onClickLike(View v) {
-        if (v.getId() == R.id.activity_restaurant_button_like) {
-            if (getResources().getString(R.string.LIKE).equals(likeBtn.getText())) {
+        if(v.getId() == R.id.activity_restaurant_button_like) {
+            if(getResources().getString(R.string.LIKE).equals(likeBtn.getText())) {
                 this.likeTheRestaurant();
             } else {
                 this.dislikeThisRestaurant();
@@ -234,9 +240,9 @@ public class RestaurantActivity extends BaseActivity {
     }
 
     private void likeTheRestaurant() {
-        if (UserHelper.getCurrentUser() != null) {
+        if(UserHelper.getCurrentUser() != null) {
             UserHelper.createLike(result.getPlaceId(), UserHelper.getCurrentUser().getUid()).addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
+                if(task.isSuccessful()) {
                     Toast.makeText(this, getResources().getString(R.string.like_restaurant), Toast.LENGTH_SHORT).show();
                     likeBtn.setText(getResources().getString(R.string.UNLIKE));
                 }
@@ -247,7 +253,7 @@ public class RestaurantActivity extends BaseActivity {
     }
 
     private void dislikeThisRestaurant() {
-        if (UserHelper.getCurrentUser() != null) {
+        if(UserHelper.getCurrentUser() != null) {
             UserHelper.deleteLike(result.getPlaceId(), UserHelper.getCurrentUser().getUid());
             likeBtn.setText(getResources().getString(R.string.LIKE));
             Toast.makeText(this, getResources().getString(R.string.dislike_restaurant), Toast.LENGTH_SHORT).show();
@@ -258,12 +264,12 @@ public class RestaurantActivity extends BaseActivity {
 
     private void restoreLikeButton() {
         UserHelper.restoreLike(UserHelper.getCurrentUser().getUid()).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                if (task.getResult().isEmpty()) {
+            if(task.isSuccessful()) {
+                if(task.getResult().isEmpty()) {
                     likeBtn.setText(getResources().getString(R.string.LIKE));
                 } else {
-                    for (DocumentSnapshot restaurant : task.getResult()) {
-                        if (result.getPlaceId().equals(restaurant.getId())) {
+                    for(DocumentSnapshot restaurant : task.getResult()) {
+                        if(result.getPlaceId().equals(restaurant.getId())) {
                             likeBtn.setText(getResources().getString(R.string.UNLIKE));
                             break;
                         } else {
@@ -277,9 +283,9 @@ public class RestaurantActivity extends BaseActivity {
 
     private void restoreGoButton() {
         UserHelper.getBookingRestaurant(UserHelper.getCurrentUser().getUid()).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
+            if(task.isSuccessful()) {
                 String restaurantId = task.getResult().getString(GET_RESTAURANT_ID);
-                if (restaurantId != null && restaurantId.equals(result.getPlaceId())) {
+                if(restaurantId != null && restaurantId.equals(result.getPlaceId())) {
                     floatButton.setImageDrawable(getResources().getDrawable(R.drawable.validate));
                     floatButton.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                     floatButton.setColorFilter(getResources().getColor(R.color.colorTransparent));
@@ -296,6 +302,6 @@ public class RestaurantActivity extends BaseActivity {
 
     // Dispose subscription
     private void disposeWhenDestroy() {
-        if (this.disposable != null && !this.disposable.isDisposed()) this.disposable.dispose();
+        if(this.disposable != null && !this.disposable.isDisposed()) this.disposable.dispose();
     }
 }

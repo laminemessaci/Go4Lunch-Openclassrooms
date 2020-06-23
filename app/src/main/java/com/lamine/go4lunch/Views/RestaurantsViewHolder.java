@@ -29,14 +29,22 @@ public class RestaurantsViewHolder extends RecyclerView.ViewHolder {
 
 
     private static final String GET_UID = "uid";
-    @BindView(R.id.item_textview_name) TextView restaurantName;
-    @BindView(R.id.item_textview_address) TextView restaurantAddress;
-    @BindView(R.id.item_textview_opening) TextView restaurantOpenClose;
-    @BindView(R.id.item_textview_distance) TextView restaurantDistance;
-    @BindView(R.id.item_imageview_main_pic) ImageView restaurantPicture;
-    @BindView(R.id.item_ratingBar) RatingBar restaurantRatingBar;
-    @BindView(R.id.item_imageview_mates) ImageView imageViewMates;
-    @BindView(R.id.item_textview_mates) TextView textViewMates;
+    @BindView(R.id.item_textview_name)
+    TextView restaurantName;
+    @BindView(R.id.item_textview_address)
+    TextView restaurantAddress;
+    @BindView(R.id.item_textview_opening)
+    TextView restaurantOpenClose;
+    @BindView(R.id.item_textview_distance)
+    TextView restaurantDistance;
+    @BindView(R.id.item_imageview_main_pic)
+    ImageView restaurantPicture;
+    @BindView(R.id.item_ratingBar)
+    RatingBar restaurantRatingBar;
+    @BindView(R.id.item_imageview_mates)
+    ImageView imageViewMates;
+    @BindView(R.id.item_textview_mates)
+    TextView textViewMates;
     private float[] distanceResults = new float[3];
 
     RestaurantsViewHolder(View itemView) {
@@ -58,8 +66,8 @@ public class RestaurantsViewHolder extends RecyclerView.ViewHolder {
         this.restaurantDistance.setText(itemView.getResources().getString(R.string.list_unit_distance, distance));
 
         // ---------- Opening -------------
-        if (result.getOpeningHours() != null) {
-            if (result.getOpeningHours().getOpenNow()) {
+        if(result.getOpeningHours() != null) {
+            if(result.getOpeningHours().getOpenNow()) {
                 restaurantOpenClose.setText(R.string.open);
                 restaurantOpenClose.setTextColor(ContextCompat.getColor(itemView.getContext(), R.color.quantum_lightgreen));
             } else {
@@ -72,8 +80,8 @@ public class RestaurantsViewHolder extends RecyclerView.ViewHolder {
         }
 
         // -------------- PICTURE ------------------
-        if (!(result.getPhotos() == null)) {
-            if (!(result.getPhotos().isEmpty())) {
+        if(!(result.getPhotos() == null)) {
+            if(!(result.getPhotos().isEmpty())) {
                 Glide.with(itemView)
                         .load("https://maps.googleapis.com/maps/api/place/photo" + "?maxwidth=" + 75 + "&maxheight=" + 75 + "&photoreference=" + result.getPhotos().get(0).getPhotoReference() + "&key=AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA")
                         .into(restaurantPicture);
@@ -87,15 +95,15 @@ public class RestaurantsViewHolder extends RecyclerView.ViewHolder {
 
         // ----------- MATES -----------
         UserHelper.getRestaurant(result.getPlaceId()).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                if (task.getResult().size() > 0) {
+            if(task.isSuccessful()) {
+                if(task.getResult().size() > 0) {
                     List<String> resultList = new ArrayList<>();
-                    for (DocumentSnapshot document : task.getResult().getDocuments()) {
+                    for(DocumentSnapshot document : task.getResult().getDocuments()) {
                         String uid = document.getString(GET_UID);
-                        if (!uid.equals(UserHelper.getCurrentUser().getUid()))
+                        if(!uid.equals(UserHelper.getCurrentUser().getUid()))
                             resultList.add(uid);
                     }
-                    if (resultList.size() > 0) {
+                    if(resultList.size() > 0) {
                         textViewMates.setText(itemView.getResources().getString(R.string.restaurant_mates_number, task.getResult().size()));
                         imageViewMates.setImageResource(R.drawable.baseline_perm_identity_black_24);
                         imageViewMates.setVisibility(View.VISIBLE);
@@ -115,7 +123,7 @@ public class RestaurantsViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void displayRating(NearbyResult result) {
-        if (result.getRating() != 0) {
+        if(result.getRating() != 0) {
             double googleRating = result.getRating();
             double rating = googleRating / 5 * 3;
             this.restaurantRatingBar.setRating((float) rating);

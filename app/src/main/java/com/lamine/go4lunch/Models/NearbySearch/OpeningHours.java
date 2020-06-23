@@ -15,16 +15,20 @@ public class OpeningHours {
     @Expose
     private List<Object> weekday_text = null;
 
+    public List<Object> getWeekdayText() {
+        return weekday_text;
+    }
+
     public void setWeekdayText(List<Object> weekdayText) {
         this.weekday_text = weekdayText;
     }
-    public void setOpenNow(Boolean openNow) {
-        this.openNow = openNow;
-    }
 
-    public List<Object> getWeekdayText() {return weekday_text;}
     public Boolean getOpenNow() {
         return openNow;
+    }
+
+    public void setOpenNow(Boolean openNow) {
+        this.openNow = openNow;
     }
 
 }

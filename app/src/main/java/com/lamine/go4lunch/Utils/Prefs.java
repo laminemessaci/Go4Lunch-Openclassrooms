@@ -21,7 +21,7 @@ public class Prefs {
     private static final String LANGUAGE_CHOICE = "language";
     private static final String MY_PREFS = "my_prefs";
     private static final String USER_PREFS = "user_prefs";
-    private static final String RESTAURANTS = " Restaurants" ;
+    private static final String RESTAURANTS = " Restaurants";
 
     //This class using SharedPreferences and the Gson library
 
@@ -33,9 +33,10 @@ public class Prefs {
     Prefs(Context context) {
         prefs = context.getSharedPreferences(MY_PREFS, MODE_PRIVATE);
     }
+
     //Prefs.get is called to create a new instance of Prefs
     public static Prefs get(Context context) {
-        if (instance == null)
+        if(instance == null)
             instance = new Prefs(context);
         return instance;
     }
@@ -51,6 +52,7 @@ public class Prefs {
         //close the file
         editor.apply();
     }
+
     public void storeChoicePrefs(Result restaurant) {
         //start writing (open the file)
         SharedPreferences.Editor editor = prefs.edit();
@@ -69,29 +71,29 @@ public class Prefs {
         return gson.fromJson(json, User.class);
     }
 
-    public Result getChoice(){
+    public Result getChoice() {
         Gson gson = new Gson();
         String json = prefs.getString(RESTAURANTS, "");
         return gson.fromJson(json, Result.class);
     }
 
-    public void storePicture(Uri uri, String userName){
+    public void storePicture(Uri uri, String userName) {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(userName, uri.toString());
         editor.apply();
     }
 
-    public Uri getPicture(String userName){
+    public Uri getPicture(String userName) {
         String imageUriString = prefs.getString(userName, "");
         assert imageUriString != null;
-        if(!imageUriString.isEmpty()){
+        if(!imageUriString.isEmpty()) {
             return Uri.parse(imageUriString);
-        }else {
+        } else {
             return null;
         }
     }
 
-    public void storeListResults(List<Result> resultDetailList){
+    public void storeListResults(List<Result> resultDetailList) {
         SharedPreferences.Editor editor = prefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(resultDetailList);
@@ -99,13 +101,13 @@ public class Prefs {
         editor.apply();
     }
 
-    public void storeLanguageChoice(String language_choice){
+    public void storeLanguageChoice(String language_choice) {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(LANGUAGE_CHOICE, language_choice);
         editor.apply();
     }
 
-    public String getLanguage(){
+    public String getLanguage() {
         return prefs.getString(LANGUAGE_CHOICE, "");
     }
 }

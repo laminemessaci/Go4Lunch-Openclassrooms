@@ -54,13 +54,17 @@ import static com.lamine.go4lunch.Utils.Constants.GET_RESTAURANT_ID;
 import static com.lamine.go4lunch.Utils.Constants.ID;
 import static com.lamine.go4lunch.Utils.Constants.SIGN_OUT_TASK;
 
-public class MainScreenActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainScreenActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     // FOR DESIGN
-    @BindView(R.id.first_screen_toolbar) Toolbar toolbar;
-    @BindView(R.id.first_screen_drawerlayout) DrawerLayout drawerLayout;
-    @BindView(R.id.first_screen_bottom_navigation) BottomNavigationView bottomNavigationView;
-    @BindView(R.id.first_screen_navigation_view) NavigationView navigationView;
+    @BindView(R.id.first_screen_toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.first_screen_drawerlayout)
+    DrawerLayout drawerLayout;
+    @BindView(R.id.first_screen_bottom_navigation)
+    BottomNavigationView bottomNavigationView;
+    @BindView(R.id.first_screen_navigation_view)
+    NavigationView navigationView;
 
     private ImageView profileImageView;
     private TextView emailTextView;
@@ -107,12 +111,12 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
 
         int id = item.getItemId();
 
-        switch (id) {
+        switch(id) {
             case R.id.yourLunch:
                 UserHelper.getBookingRestaurant(UserHelper.getCurrentUser().getUid()).addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
+                    if(task.isSuccessful()) {
                         String restaurantId = task.getResult().getString(GET_RESTAURANT_ID);
-                        if (restaurantId != null) {
+                        if(restaurantId != null) {
                             Intent intent = new Intent(this, RestaurantActivity.class);
                             intent.putExtra(ID, restaurantId);
                             startActivity(intent);
@@ -145,21 +149,21 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
             int id = menuItem.getItemId();
 
             // Set current location in the ViewPager to handle the position of the fragments
-            switch (id) {
+            switch(id) {
                 case R.id.list_view:
                     displayFragments(ListViewFragment.newInstance());
                     cleanAutoCompleteTextView();
-                   // hideToolbarAndBoottomBar();
+                    // hideToolbarAndBoottomBar();
                     break;
                 case R.id.workmates:
                     displayFragments(WorkmatesFragment.newInstance());
                     cleanAutoCompleteTextView();
-                   // hideToolbarAndBoottomBar();
+                    // hideToolbarAndBoottomBar();
                     break;
                 default:
                     displayFragments(MapViewFragment.newInstance());
                     cleanAutoCompleteTextView();
-                   // hideToolbarAndBoottomBar();
+                    // hideToolbarAndBoottomBar();
                     break;
             }
             return true;
@@ -179,12 +183,10 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
 
     // Configure Toolbar
     private void configureToolbar() {
-        //Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.im_hungry));
-        //toolbar.setTitle((R.string.im_hungry));
+        // Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.im_hungry));
         this.toolbar = findViewById(R.id.first_screen_toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Help");
-
+        toolbar.setTitle((R.string.im_hungry));
     }
 
     // Configure DrawerLayout
@@ -206,10 +208,10 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
     // Update UI when activity is created
     private void updateUIWhenCreating() {
 
-        if (UserHelper.getCurrentUser() != null) {
+        if(UserHelper.getCurrentUser() != null) {
 
             // Get picture URL from FireBase
-            if (UserHelper.getCurrentUser().getPhotoUrl() != null) {
+            if(UserHelper.getCurrentUser().getPhotoUrl() != null) {
                 Glide.with(this)
                         .load(UserHelper.getCurrentUser().getPhotoUrl())
                         .apply(RequestOptions.circleCropTransform())
@@ -249,7 +251,7 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
     // Create OnCompleteListener called after tasks ended
     private OnSuccessListener<Void> updateUIAfterRequestCompleted(final int origin) {
         return aVoid -> {
-            if (origin == SIGN_OUT_TASK) {
+            if(origin == SIGN_OUT_TASK) {
                 Intent intent = new Intent(this, LogInActivity.class);
                 startActivity(intent);
                 finish();
@@ -289,16 +291,16 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (s.length() > 0) {
+                if(s.length() > 0) {
                     configureAutoPredictions(s);
                 } else {
                     // Create a Fragment and find the view with the ID
                     Fragment fragmentById = getSupportFragmentManager().findFragmentById(R.id.fragment_placeholder);
                     // Check if the Fragment is an instance of ListViewFragment
-                    if (fragmentById instanceof ListViewFragment) {
+                    if(fragmentById instanceof ListViewFragment) {
                         // Cast the Fragment with the ListViewFragment to call the displayAllRestaurants method
                         ((ListViewFragment) fragmentById).displayAllRestaurants();
-                    } else if (fragmentById instanceof MapViewFragment) {
+                    } else if(fragmentById instanceof MapViewFragment) {
                         ((MapViewFragment) fragmentById).displayAllRestaurants();
                     }
                 }
@@ -315,22 +317,22 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
             // Create an ArrayList to contain the request result
             List<NearbyResult> nearbyResultList = new ArrayList<>();
             Fragment fragmentById = getSupportFragmentManager().findFragmentById(R.id.fragment_placeholder);
-            if (fragmentById instanceof ListViewFragment) {
+            if(fragmentById instanceof ListViewFragment) {
                 // Fill the new List with the fragment list result
                 nearbyResultList = ((ListViewFragment) fragmentById).nearbyResultList;
-            } else if (fragmentById instanceof MapViewFragment) {
+            } else if(fragmentById instanceof MapViewFragment) {
                 nearbyResultList = ((MapViewFragment) fragmentById).nearbyResultList;
             }
             // For each NearbyResult into the ArrayList
-            for (NearbyResult nearbyResult : nearbyResultList) {
-                if (nearbyResult.getName().equals(item)) {
+            for(NearbyResult nearbyResult : nearbyResultList) {
+                if(nearbyResult.getName().equals(item)) {
                     // Add the specific result of nearbyResult into nearbyResultList
                     nearbyResultListFilter.add(nearbyResult);
                 }
             }
-            if (fragmentById instanceof ListViewFragment) {
+            if(fragmentById instanceof ListViewFragment) {
                 ((ListViewFragment) fragmentById).refreshRestaurants(nearbyResultListFilter);
-            } else if (fragmentById instanceof MapViewFragment) {
+            } else if(fragmentById instanceof MapViewFragment) {
                 ((MapViewFragment) fragmentById).updateGoogleUi(nearbyResultListFilter);
             }
         });
@@ -354,8 +356,8 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
         placesClient.findAutocompletePredictions(request).addOnSuccessListener((response) -> {
             List<String> restaurantList = new ArrayList<>();
 
-            for (AutocompletePrediction prediction : response.getAutocompletePredictions()) {
-                if (prediction.getPlaceTypes().contains(Place.Type.RESTAURANT)) {
+            for(AutocompletePrediction prediction : response.getAutocompletePredictions()) {
+                if(prediction.getPlaceTypes().contains(Place.Type.RESTAURANT)) {
 
                     restaurantList.add(prediction.getPrimaryText(null).toString());
 
@@ -373,7 +375,7 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
         menuItem.setIcon(R.drawable.searchicon);
         menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         menuItem.setOnMenuItemClickListener(item -> {
-            if (autoCompleteTextView.getVisibility() == View.INVISIBLE) {
+            if(autoCompleteTextView.getVisibility() == View.INVISIBLE) {
                 autoCompleteTextView.setVisibility(View.VISIBLE);
             } else {
                 autoCompleteTextView.setVisibility(View.INVISIBLE);
@@ -384,7 +386,7 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
     }
 
     // Hide toolbar
-    private void hideToolbarAndBoottomBar(){
+    private void hideToolbarAndBoottomBar() {
         toolbar.setVisibility(View.GONE);
         bottomNavigationView.setVisibility(View.GONE);
     }

@@ -20,7 +20,7 @@ public class Go4LunchStreams {
     private static Go4LunchStreams go4LunchStreams;
     private static Go4LunchService go4LunchService;
 
-    private Go4LunchStreams(){
+    private Go4LunchStreams() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://maps.googleapis.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -30,6 +30,16 @@ public class Go4LunchStreams {
     }
 
     // Google Places streams
+
+    public static Go4LunchStreams getInstance() {
+        if(go4LunchStreams == null) {
+            synchronized(Go4LunchStreams.class) {
+                if(go4LunchStreams == null)
+                    go4LunchStreams = new Go4LunchStreams();
+            }
+        }
+        return go4LunchStreams;
+    }
 
     public Observable<Google> streamFetchGooglePlaces(String location, int radius, String type) {
         return go4LunchService.getGoogleRestaurant(location, radius, type)
@@ -43,15 +53,5 @@ public class Go4LunchStreams {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .timeout(500, TimeUnit.SECONDS);
-    }
-
-    public static Go4LunchStreams getInstance(){
-        if(go4LunchStreams == null){
-            synchronized (Go4LunchStreams.class){
-                if(go4LunchStreams == null)
-                    go4LunchStreams = new Go4LunchStreams();
-            }
-        }
-        return go4LunchStreams;
     }
 }

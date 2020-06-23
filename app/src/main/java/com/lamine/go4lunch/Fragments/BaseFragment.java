@@ -10,9 +10,9 @@ import io.reactivex.disposables.Disposable;
 
 public abstract class BaseFragment extends Fragment {
 
-    Disposable disposable;
     static final String ID = "ID";
     static final String RESTAURANT = "restaurant";
+    Disposable disposable;
 
     // ----------------------------------------------------------
 
@@ -28,6 +28,6 @@ public abstract class BaseFragment extends Fragment {
     }
 
     private void disposeWhenDestroy() {
-        if (this.disposable != null && !this.disposable.isDisposed()) this.disposable.dispose();
+        if(this.disposable != null && !this.disposable.isDisposed()) this.disposable.dispose();
     }
 }

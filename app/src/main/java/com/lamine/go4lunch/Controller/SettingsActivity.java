@@ -37,16 +37,18 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     // Method that save the state of the switch in a boolean and display a snackbar to warn the user
-    private void updateSwitchState(){
+    private void updateSwitchState() {
         enableNotification.setOnCheckedChangeListener((compoundButton, switchState) -> {
             editor.putBoolean("switchState", switchState).commit();
-            if(getSwitchState()) Snackbar.make(settingsContainer, R.string.notification_is_enabled, Snackbar.LENGTH_LONG).show();
-            else Snackbar.make(settingsContainer, R.string.notification_is_disabled, Snackbar.LENGTH_LONG).show();
+            if(getSwitchState())
+                Snackbar.make(settingsContainer, R.string.notification_is_enabled, Snackbar.LENGTH_LONG).show();
+            else
+                Snackbar.make(settingsContainer, R.string.notification_is_disabled, Snackbar.LENGTH_LONG).show();
         });
     }
 
     // Return true of false depending on the state of the switch
-    private boolean getSwitchState(){
+    private boolean getSwitchState() {
         return sharedPreferences.getBoolean("switchState", false);
     }
 }

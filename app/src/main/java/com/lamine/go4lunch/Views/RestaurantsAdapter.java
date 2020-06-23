@@ -46,7 +46,7 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsViewHold
         return this.mResultList.size();
     }
 
-    public void refreshAdapter(List<NearbyResult> nearbyResults){
+    public void refreshAdapter(List<NearbyResult> nearbyResults) {
         mResultList = nearbyResults;
         notifyDataSetChanged();
     }

@@ -25,12 +25,27 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    
+
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "MAPS_API_KEY", "\"AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA\"")
+            resValue("string", "MAPS_API_KEY", "AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA")
+        }
+        debug {
+            // Use static values for incremental builds to ensure that
+            // resource files and BuildConfig aren't rebuilt with each run.
+            // If they were dynamic, they would prevent certain benefits of
+            // Instant Run as well as Gradle UP-TO-DATE checks.
+            buildConfigField("String", "MAPS_API_KEY", "\"AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA\"")
+            resValue("string", "MAPS_API_KEY", "AIzaSyB6npGzQpiEdM7mSaqSu_XUhFb-gh9EOeA")
+
         }
     }
+
 }
 
 dependencies {

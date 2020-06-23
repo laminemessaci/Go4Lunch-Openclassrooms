@@ -2,14 +2,13 @@ package com.lamine.go4lunch.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.lamine.go4lunch.Controller.RestaurantActivity;
 import com.lamine.go4lunch.Models.NearbySearch.Google;
@@ -31,7 +30,8 @@ import io.reactivex.observers.DisposableObserver;
 public class ListViewFragment extends BaseFragment {
 
     public List<NearbyResult> nearbyResultList;
-    @BindView(R.id.listview_recyclerview) RecyclerView recyclerView;
+    @BindView(R.id.listview_recyclerview)
+    RecyclerView recyclerView;
     private String position;
     private RestaurantsAdapter listViewAdapter;
 

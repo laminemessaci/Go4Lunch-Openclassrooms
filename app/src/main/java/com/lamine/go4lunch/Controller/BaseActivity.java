@@ -1,9 +1,9 @@
 package com.lamine.go4lunch.Controller;
 
+import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
 
 import butterknife.ButterKnife;
 

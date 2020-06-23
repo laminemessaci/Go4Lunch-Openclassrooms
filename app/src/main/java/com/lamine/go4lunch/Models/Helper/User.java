@@ -8,6 +8,17 @@ import android.os.Parcelable;
  */
 public class User implements Parcelable {
 
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
     private String uid;
     private String username;
     private String urlPicture;
@@ -16,8 +27,9 @@ public class User implements Parcelable {
     private String choice;
     private String userEmail;
 
-    public User(){}
 
+    public User() {
+    }
 
     User(String uid, String username, String urlPicture) {
         this.uid = uid;
@@ -43,18 +55,6 @@ public class User implements Parcelable {
         restaurantId = in.readString();
     }
 
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
-
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
-
     // --- GETTERS ---
 
     public String getUid() {
@@ -65,30 +65,40 @@ public class User implements Parcelable {
         return username;
     }
 
-    public String getUrlPicture() {return urlPicture; }
+    public String getUrlPicture() {
+        return urlPicture;
+    }
 
     public String getJoinedRestaurant() {
         return joinedRestaurant;
     }
 
-    public String getChoice(){return choice;}
+    void setJoinedRestaurant(String joinedRestaurant) {
+        this.joinedRestaurant = joinedRestaurant;
+    }
 
-    public String getIdRestaurant() { return restaurantId; }
-
+    public String getChoice() {
+        return choice;
+    }
 
 
     // --- SETTERS ---
 
-    void setJoinedRestaurant(String joinedRestaurant) {
-        this.joinedRestaurant = joinedRestaurant;
+    public void setChoice(String choise) {
+        this.choice = choise;
+    }
+
+    public String getIdRestaurant() {
+        return restaurantId;
+    }
+
+    public void setIdRestaurant(String idRestaurant) {
+        this.restaurantId = idRestaurant;
     }
 
     void setRestaurantId(String restaurantId) {
         this.restaurantId = restaurantId;
     }
-
-    public void setChoice(String choise ){ this.choice = choise;}
-    public void setIdRestaurant(String idRestaurant) { this.restaurantId = idRestaurant; }
 
     // ------------------------------------------------
 
