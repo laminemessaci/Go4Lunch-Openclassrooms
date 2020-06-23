@@ -15,7 +15,6 @@ public class MyApplication extends MultiDexApplication {
         super.onCreate();
         Places.initialize(this, BuildConfig.MAPS_API_KEY);
 
-
         // Batch.setConfig(new Config("5EEE4AA262F4CFA78746AF71143F66")); // live
         Batch.setConfig(new Config("DEV5EEE4AA2637B19FD45FF7F5B4A8")); // development
         registerActivityLifecycleCallbacks(new BatchActivityLifecycleHelper());

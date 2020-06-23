@@ -22,10 +22,8 @@ import butterknife.ButterKnife;
  */
 public class WorkmatesViewHolder extends RecyclerView.ViewHolder {
 
-    @BindView(R.id.workmates_name)
-    TextView name;
-    @BindView(R.id.workmates_picture)
-    ImageView picture;
+    @BindView(R.id.workmates_name) TextView name;
+    @BindView(R.id.workmates_picture) ImageView picture;
 
     WorkmatesViewHolder(@NonNull View itemView) {
         super(itemView);

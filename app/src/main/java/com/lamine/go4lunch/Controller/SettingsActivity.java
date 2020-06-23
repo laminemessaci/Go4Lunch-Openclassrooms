@@ -15,12 +15,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SettingsActivity extends AppCompatActivity {
+
+    @BindView(R.id.toolbar_setting) Toolbar toolbar;
+
     private Switch enableNotification; // Used to add a switch
     private LinearLayout settingsContainer; // LinearLayout that contain the switch
     private SharedPreferences sharedPreferences; // Used to get our shared preferences
     private SharedPreferences.Editor editor; // Used to get data from the preferences
-
-    @BindView(R.id.toolbar_setting) Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

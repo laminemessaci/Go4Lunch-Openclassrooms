@@ -27,8 +27,7 @@ import butterknife.ButterKnife;
  */
 public class WorkmatesFragment extends BaseFragment {
 
-    @BindView(R.id.fragment_workmates_recyclerview)
-    RecyclerView recyclerView;
+    @BindView(R.id.fragment_workmates_recyclerview) RecyclerView recyclerView;
 
     private List<User> userList;
     private WorkmatesAdapter workmatesAdapter;

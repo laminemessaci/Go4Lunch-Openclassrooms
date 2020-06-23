@@ -29,22 +29,16 @@ public class RestaurantsViewHolder extends RecyclerView.ViewHolder {
 
 
     private static final String GET_UID = "uid";
-    @BindView(R.id.item_textview_name)
-    TextView restaurantName;
-    @BindView(R.id.item_textview_address)
-    TextView restaurantAddress;
-    @BindView(R.id.item_textview_opening)
-    TextView restaurantOpenClose;
-    @BindView(R.id.item_textview_distance)
-    TextView restaurantDistance;
-    @BindView(R.id.item_imageview_main_pic)
-    ImageView restaurantPicture;
-    @BindView(R.id.item_ratingBar)
-    RatingBar restaurantRatingBar;
-    @BindView(R.id.item_imageview_mates)
-    ImageView imageViewMates;
-    @BindView(R.id.item_textview_mates)
-    TextView textViewMates;
+
+    @BindView(R.id.item_textview_name) TextView restaurantName;
+    @BindView(R.id.item_textview_address) TextView restaurantAddress;
+    @BindView(R.id.item_textview_opening) TextView restaurantOpenClose;
+    @BindView(R.id.item_textview_distance) TextView restaurantDistance;
+    @BindView(R.id.item_imageview_main_pic) ImageView restaurantPicture;
+    @BindView(R.id.item_ratingBar) RatingBar restaurantRatingBar;
+    @BindView(R.id.item_imageview_mates) ImageView imageViewMates;
+    @BindView(R.id.item_textview_mates) TextView textViewMates;
+
     private float[] distanceResults = new float[3];
 
     RestaurantsViewHolder(View itemView) {

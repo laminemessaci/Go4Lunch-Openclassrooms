@@ -29,9 +29,9 @@ import io.reactivex.observers.DisposableObserver;
 
 public class ListViewFragment extends BaseFragment {
 
+    @BindView(R.id.listview_recyclerview) RecyclerView recyclerView;
+
     public List<NearbyResult> nearbyResultList;
-    @BindView(R.id.listview_recyclerview)
-    RecyclerView recyclerView;
     private String position;
     private RestaurantsAdapter listViewAdapter;
 

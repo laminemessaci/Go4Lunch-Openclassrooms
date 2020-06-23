@@ -45,21 +45,13 @@ import static com.lamine.go4lunch.Utils.Constants.TEL;
 
 public class RestaurantActivity extends BaseActivity {
 
-
-    @BindView(R.id.activity_restaurant_restaurant_picture)
-    ImageView restaurantImageView;
-    @BindView(R.id.activity_restaurant_address)
-    TextView restaurantAddress;
-    @BindView(R.id.activity_restaurant_name)
-    TextView restaurantName;
-    @BindView(R.id.activity_restaurant_recycler)
-    RecyclerView recyclerView;
-    @BindView(R.id.activity_restaurant_ratingBar)
-    RatingBar ratingBar;
-    @BindView(R.id.activity_restaurant_button_like)
-    Button likeBtn;
-    @BindView(R.id.restaurant_activity_go_button)
-    FloatingActionButton floatButton;
+    @BindView(R.id.activity_restaurant_restaurant_picture) ImageView restaurantImageView;
+    @BindView(R.id.activity_restaurant_address) TextView restaurantAddress;
+    @BindView(R.id.activity_restaurant_name) TextView restaurantName;
+    @BindView(R.id.activity_restaurant_recycler) RecyclerView recyclerView;
+    @BindView(R.id.activity_restaurant_ratingBar) RatingBar ratingBar;
+    @BindView(R.id.activity_restaurant_button_like) Button likeBtn;
+    @BindView(R.id.restaurant_activity_go_button) FloatingActionButton floatButton;
     @BindView(R.id.toolbar_restaurant) Toolbar toolbar;
 
     private Disposable disposable;

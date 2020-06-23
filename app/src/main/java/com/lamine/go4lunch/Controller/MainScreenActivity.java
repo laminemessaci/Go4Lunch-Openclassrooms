@@ -58,14 +58,10 @@ import static com.lamine.go4lunch.Utils.Constants.SIGN_OUT_TASK;
 public class MainScreenActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     // FOR DESIGN
-    @BindView(R.id.first_screen_toolbar)
-    Toolbar toolbar;
-    @BindView(R.id.first_screen_drawerlayout)
-    DrawerLayout drawerLayout;
-    @BindView(R.id.first_screen_bottom_navigation)
-    BottomNavigationView bottomNavigationView;
-    @BindView(R.id.first_screen_navigation_view)
-    NavigationView navigationView;
+    @BindView(R.id.first_screen_toolbar) Toolbar toolbar;
+    @BindView(R.id.first_screen_drawerlayout) DrawerLayout drawerLayout;
+    @BindView(R.id.first_screen_bottom_navigation) BottomNavigationView bottomNavigationView;
+    @BindView(R.id.first_screen_navigation_view) NavigationView navigationView;
 
     private ImageView profileImageView;
     private TextView emailTextView;
@@ -383,9 +379,4 @@ public class MainScreenActivity extends BaseActivity implements NavigationView.O
         return super.onPrepareOptionsMenu(menu);
     }
 
-    // Hide toolbar
-    private void hideToolbarAndBoottomBar() {
-        toolbar.setVisibility(View.GONE);
-        bottomNavigationView.setVisibility(View.GONE);
-    }
 }

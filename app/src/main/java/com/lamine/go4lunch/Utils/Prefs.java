@@ -13,11 +13,8 @@ public class Prefs {
 
     private static final String LANGUAGE_CHOICE = "language";
     private static final String MY_PREFS = "my_prefs";
-    private static final String USER_PREFS = "user_prefs";
-    private static final String RESTAURANTS = " Restaurants";
 
-    //This class using SharedPreferences and the Gson library
-
+    //This class using SharedPreferences
     private static Prefs instance;
     private static SharedPreferences prefs;
 

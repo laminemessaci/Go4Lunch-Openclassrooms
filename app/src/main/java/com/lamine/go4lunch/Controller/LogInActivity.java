@@ -41,19 +41,13 @@ public class LogInActivity extends BaseActivity {
     private static final int RC_SIGN_IN = 123;
     private final int REQUEST_LOCATION_PERMISSION = 1;
     // FOR DESIGN
-    @BindView(R.id.spinner)
-    Spinner spinner;
-    @BindView(R.id.mainActivity_facebook_login)
-    Button buttonFaceBook;
-    @BindView(R.id.mainActivity_google_login)
-    Button buttonGoogle;
-    @BindView(R.id.mainActivity_login)
-    Button buttonEmail;
-    @BindView(R.id.mainActivity_twitter_login)
-    Button twitterLoginButton;
+    @BindView(R.id.spinner) Spinner spinner;
+    @BindView(R.id.mainActivity_facebook_login) Button buttonFaceBook;
+    @BindView(R.id.mainActivity_google_login) Button buttonGoogle;
+    @BindView(R.id.mainActivity_login) Button buttonEmail;
+    @BindView(R.id.mainActivity_twitter_login) Button twitterLoginButton;
     // - Get Coordinator Layout
-    @BindView(R.id.mainActivity_CoordinatorLayout)
-    CoordinatorLayout coordinatorLayout;
+    @BindView(R.id.mainActivity_CoordinatorLayout) CoordinatorLayout coordinatorLayout;
     //FOR DATA
     private Prefs prefs;
     private String currentLanguage = "en", currentLang;
